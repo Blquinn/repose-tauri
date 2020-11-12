@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ba87d7ef-99f6-45c2-bbfd-052dcc86b844" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="RequestList" />
+        <option value="SplitPane" />
+        <option value="RequestEditor" />
+        <option value="MonacoEditor" />
+        <option value="MonacoEditor.svelte" />
+        <option value="AceEditor.svelte" />
+        <option value="CodeMirror" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="wgrjf7bu" />
+  </component>
+  <component name="ProjectId" id="1jwPydDEjCEfLRp0zGHzoXMrzTc" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="Compound.Dev">
+    <configuration name="Dev" type="CompoundRunConfigurationType">
+      <toRun name="tauri dev" type="js.build_tools.npm" />
+      <toRun name="svelte dev" type="js.build_tools.npm" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="CompoundRunConfigurationType">
+      <toRun name="tauri dev" type="js.build_tools.npm" />
+      <toRun name="svelte dev" type="js.build_tools.npm" />
+      <method v="2" />
+    </configuration>
+    <configuration name="svelte dev" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="tauri dev" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="tauri" />
+      </scripts>
+      <arguments value="dev" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Compound.Dev" />
+      <item itemvalue="npm.svelte dev" />
+      <item itemvalue="npm.tauri dev" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ba87d7ef-99f6-45c2-bbfd-052dcc86b844" name="Default Changelist" comment="" />
+      <created>1604712438809</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604712438809</updated>
+      <workItem from="1604712440359" duration="25789000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="304" y="198" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604712768806">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="304" y="198" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1604712768806" />
+    <state width="1638" height="228" key="GridCell.Tab.0.bottom" timestamp="1604976599552">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="228" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1604976599552" />
+    <state width="1638" height="228" key="GridCell.Tab.0.center" timestamp="1604976599552">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="228" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1604976599552" />
+    <state width="1638" height="228" key="GridCell.Tab.0.left" timestamp="1604976599551">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="228" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1604976599551" />
+    <state width="1638" height="228" key="GridCell.Tab.0.right" timestamp="1604976599552">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="228" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1604976599552" />
+    <state x="541" y="291" width="598" height="490" key="find.popup" timestamp="1604967992130">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="541" y="291" width="598" height="490" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1604967992130" />
+  </component>
+</project>
