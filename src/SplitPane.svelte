@@ -48,12 +48,20 @@
         position: relative;
         width: 100%;
         height: 100%;
+        flex-grow: 1;
     }
     .pane {
-        position: relative;
+        /*position: relative;*/
+        position: absolute;
         float: left;
         width: 100%;
         height: 100%;
+    }
+    .pane-right {
+        right: 0;
+    }
+    slot {
+        float: left;
     }
     .mousecatcher {
         position: absolute;
@@ -118,7 +126,7 @@
         <slot name="a"></slot>
     </div>
 
-    <div class="pane" style="{dimension}: {100 - (pos)}%;">
+    <div class="pane pane-right" style="{dimension}: {100 - (pos)}%;">
         <slot name="b"></slot>
     </div>
 

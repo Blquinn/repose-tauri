@@ -34,6 +34,7 @@
     "typescript": "^3.9.3"
   },
   "dependencies": {
+    "@smui/textfield": "^1.0.0",
     "codemirror": "^5.58.2",
     "tauri": "^0.12.0",
     "yootils": "^0.0.17"

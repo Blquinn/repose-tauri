@@ -13,13 +13,33 @@
     let code = '';
     let mode;
 
+    const modes = {
+        js: {
+            name: 'javascript',
+            json: false
+        },
+        json: {
+            name: 'javascript',
+            json: true
+        },
+        svelte: {
+            name: 'handlebars',
+            base: 'text/html'
+        },
+        md: {
+            name: 'markdown'
+        }
+    };
+
     // We have to expose set and update methods, rather
     // than making this state-driven through props,
     // because it's difficult to update an editor
     // without resetting scroll otherwise
     export async function set(new_code, new_mode) {
         if (new_mode !== mode) {
-            await createEditor(mode = new_mode);
+            // createEditor(mode = new_mode);
+            // editor.setMode(new_mode)
+            editor.setOption("mode", modes[new_mode] || {name: new_mode});
         }
         code = new_code;
         updating_externally = true;
@@ -56,23 +76,6 @@
         if (editor) editor.clearHistory();
     }
 
-    const modes = {
-        js: {
-            name: 'javascript',
-            json: false
-        },
-        json: {
-            name: 'javascript',
-            json: true
-        },
-        svelte: {
-            name: 'handlebars',
-            base: 'text/html'
-        },
-        md: {
-            name: 'markdown'
-        }
-    };
     const refs = {};
     let editor;
     let updating_externally = false;
@@ -82,50 +85,52 @@
     $: if (editor && w && h) {
         editor.refresh();
     }
-    $: {
-        if (marker) marker.clear();
-        if (errorLoc) {
-            const line = errorLoc.line - 1;
-            const ch = errorLoc.column;
-            marker = editor.markText({line, ch}, {line, ch: ch + 1}, {
-                className: 'error-loc'
-            });
-            error_line = line;
-        } else {
-            error_line = null;
-        }
-    }
-    let previous_error_line;
-    $: if (editor) {
-        if (previous_error_line != null) {
-            editor.removeLineClass(previous_error_line, 'wrap', 'error-line')
-        }
-        if (error_line && (error_line !== previous_error_line)) {
-            editor.addLineClass(error_line, 'wrap', 'error-line');
-            previous_error_line = error_line;
-        }
-    }
+    // $: {
+    //     if (marker) marker.clear();
+    //     if (errorLoc) {
+    //         const line = errorLoc.line - 1;
+    //         const ch = errorLoc.column;
+    //         marker = editor.markText({line, ch}, {line, ch: ch + 1}, {
+    //             className: 'error-loc'
+    //         });
+    //         error_line = line;
+    //     } else {
+    //         error_line = null;
+    //     }
+    // }
+    // let previous_error_line;
+    // $: if (editor) {
+    //     if (previous_error_line != null) {
+    //         editor.removeLineClass(previous_error_line, 'wrap', 'error-line')
+    //     }
+    //     if (error_line && (error_line !== previous_error_line)) {
+    //         editor.addLineClass(error_line, 'wrap', 'error-line');
+    //         previous_error_line = error_line;
+    //     }
+    // }
     onMount(() => {
-        (async () => {
-            // if (!_CodeMirror) {
-            //     let mod = await codemirror_promise;
-            //     CodeMirror = mod.default;
-            // } else {
-            //     CodeMirror = _CodeMirror;
-            // }
-            await createEditor(mode || 'svelte');
-            if (editor) editor.setValue(code || '');
-        })();
-        return () => {
-            destroyed = true;
-            if (editor) editor.toTextArea();
-        }
+        // createEditor(mode || 'plain');
+        createEditor(mode || 'json');
+        // (async () => {
+        //     // if (!_CodeMirror) {
+        //     //     let mod = await codemirror_promise;
+        //     //     CodeMirror = mod.default;
+        //     // } else {
+        //     //     CodeMirror = _CodeMirror;
+        //     // }
+        //     await createEditor(mode || 'svelte');
+        //     if (editor) editor.setValue(code || '');
+        // })();
+        // return () => {
+        //     destroyed = true;
+        //     if (editor) editor.toTextArea();
+        // }
     });
-    let first = true;
+    // let first = true;
 
-    async function createEditor(mode) {
+    function createEditor(mode) {
         if (destroyed || !CodeMirror) return;
-        if (editor) editor.toTextArea();
+        // if (editor) editor.toTextArea();
         const opts = {
             lineNumbers,
             lineWrapping: true,
@@ -159,22 +164,18 @@
         }
         // Creating a text editor is a lot of work, so we yield
         // the main thread for a moment. This helps reduce jank
-        if (first) await sleep(50);
         if (destroyed) return;
-        editor = CodeMirror.fromTextArea(refs.editor, opts);
+        // editor = CodeMirror.fromTextArea(refs.editor, opts);
+        console.log('Creating editor')
+        editor = CodeMirror(refs.editor, opts);
+        // editor = CodeMirror.fromTextArea(refs.editor, opts);
         editor.on('change', instance => {
             if (!updating_externally) {
                 const value = instance.getValue();
                 dispatch('change', {value});
             }
         });
-        if (first) await sleep(50);
         editor.refresh();
-        first = false;
-    }
-
-    function sleep(ms) {
-        return new Promise(fulfil => setTimeout(fulfil, ms));
     }
 </script>
 
@@ -220,14 +221,19 @@
     textarea {
         visibility: hidden;
     }
+
+    .editor {
+        height: 100%;
+    }
 </style>
 
 <div class='codemirror-container' class:flex bind:offsetWidth={w} bind:offsetHeight={h}>
     <!-- svelte-ignore a11y-positive-tabindex -->
-    <textarea
-            tabindex='2'
-            bind:this={refs.editor}
-            readonly
-            value={code}
-    ></textarea>
+<!--    <textarea-->
+<!--            tabindex='2'-->
+<!--            bind:this={refs.editor}-->
+<!--            readonly-->
+<!--            value={code}-->
+<!--    ></textarea>-->
+    <div class="editor" tabindex='2' bind:this={refs.editor} value={code}></div>
 </div>

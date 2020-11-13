@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/codemirror.min.js"></script>
+
     <style>
         html, body {
             height: 100%;
@@ -24,14 +26,29 @@
         .bottom {
             background-color: blue;
         }
+
+        #editor {
+            height: 100%;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="top"></div>
-    <div class="bottom"></div>
-</div>
+<!--<textarea id="editor"></textarea>-->
+<div id="editor"></div>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function(){
+        let el = document.getElementById('editor');
+        // CodeMirror.fromTextArea(el, {
+        //     lineNumbers: true,
+        // })
+        CodeMirror(el, {
+            lineNumbers: true,
+        });
+    });
+</script>
 
 </body>
 </html>

@@ -1,9 +1,13 @@
 <script lang="ts">
     import List, {Item, Text} from '@smui/list';
+    import Textfield, {Input, Textarea} from '@smui/textfield';
+    import Icon from '@smui/textfield/icon/index';
+
     import type {RootState} from "./state";
     import {writable} from "svelte/store";
 
     export let state: writable<RootState>;
+    let searchText = '';
 
     interface Request {
         text: string;
@@ -21,6 +25,11 @@
 </script>
 
 <main>
+    <Textfield class="shaped-outlined" variant="outlined" withTrailingIcon bind:value={searchText}
+               label="Filter" input$aria-controls="helper-text-shaped-outlined-c"
+               input$aria-describedby="helper-text-shaped-outlined-c">
+<!--        <Icon class="material-icons">delete</Icon>-->
+    </Textfield>
     <List class="request-list">
         {#each requests as request}
             <Item href="javascript:void(0)" on:click={() => {

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import {Client} from "./client";
-	import SplitPane from './SplitPane.svelte';
+    import {Client} from "./client";
+    import SplitPane from './SplitPane.svelte';
     import RequestList from './RequestList.svelte';
     import CodeMirror from './CodeMirror.svelte';
     import Button from '@smui/button';
@@ -10,15 +10,15 @@
     import {onMount} from "svelte";
 
     let rootState = writable<RootState>({
-        clicked: localStorage.getItem('clicked') ?? 'Unselected',
+        clicked: '',
     });
 
-	let client = new Client();
+    let client = new Client();
 
-	let editor: any = null;
+    let editor: any = null;
 
-	onMount(() => {
-	    editor.set('', 'json');
+    onMount(() => {
+        editor.set('', 'json');
     });
 </script>
 
@@ -30,6 +30,7 @@
 
     <div class="list-editor-container">
         <SplitPane type="horizontal" pos="25" class="split-pane">
+<!--        <SplitPaneFlex type="horizontal" pos="25" class="split-pane">-->
             <section slot=a class="split-section request-list-section">
                 <RequestList state="{rootState}" />
             </section>
@@ -40,6 +41,7 @@
                 </div>
             </section>
         </SplitPane>
+<!--        </SplitPaneFlex>-->
     </div>
 </main>
 
@@ -53,6 +55,7 @@
 
     .header {
         height: 4em;
+        min-height: 4em;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -67,6 +70,8 @@
     .list-editor-container {
         flex: auto;
         overflow-y: hidden;
+        display: flex;
+        flex-direction: column;
     }
 
     .request-list-section {
@@ -79,6 +84,7 @@
 
     .split-pane {
         max-height: 100%;
+        flex-grow: 1;
     }
 
 	@media (min-width: 640px) {

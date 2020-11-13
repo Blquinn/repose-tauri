@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/Cellar/node/14.8.0/bin/node /usr/local/Cellar/yarn/1.22.4/libexec/bin/yarn.js add -D @types/svelte-codemirror
+  /usr/local/Cellar/node/14.8.0/bin/node /usr/local/Cellar/yarn/1.22.4/libexec/bin/yarn.js add @smui/icon
 
 PATH: 
   /usr/local/opt/openssl@1.1/bin:/Users/ben/go/bin:/Users/ben/./Library/Python/2.7/bin:/Users/ben/./Library/Python/3.7/bin:/opt/local/bin:/opt/local/sbin:/Users/ben/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Apple/usr/bin:/Users/ben/Code/tauri/repose/node_modules/.bin:/Users/ben/.local/lib/flutter/bin:/Users/ben/.local/lib/flutter/.pub-cache/bin:/Users/ben/.pub-cache/bin:/Users/ben/.local/lib/protoc/bin:/usr/local/opt/node@10/bin:/Users/ben/.dotnet/tools
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2fsvelte-codemirror: Not found
+  Error: https://registry.yarnpkg.com/@smui%2ficon: Not found
       at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:66987:18)
       at Request.self.callback (/usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:140748:22)
       at Request.emit (events.js:314:20)
@@ -52,7 +52,7 @@ npm manifest:
       "rollup-plugin-css-only": "^2.1.0",
       "rollup-plugin-livereload": "^2.0.0",
       "rollup-plugin-node-resolve": "^5.2.0",
-      "rollup-plugin-postcss": "^2.0.5",
+      "rollup-plugin-postcss": "^3.1.8",
       "rollup-plugin-svelte": "^6.1.0",
       "rollup-plugin-terser": "^7.0.0",
       "sirv-cli": "^1.0.0",
@@ -63,11 +63,8 @@ npm manifest:
       "typescript": "^3.9.3"
     },
     "dependencies": {
-      "@sveltejs/svelte-subdivide": "^2.2.0",
-      "brace": "^0.11.1",
+      "@smui/textfield": "^1.0.0",
       "codemirror": "^5.58.2",
-      "monaco-editor": "^0.21.2",
-      "svelte-codemirror": "^1.2.1",
       "tauri": "^0.12.0",
       "yootils": "^0.0.17"
     }
@@ -168,6 +165,28 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@material/feature-targeting/-/feature-targeting-3.1.0.tgz#a6f6cacd1e0c9b60dc82f2f3bb2de8cfd472252b"
     integrity sha512-aXAa1Pv6w32URacE9LfMsl9zI6hFwx1K0Lp3Xpyf4rAkmaAB6z0gOkhicOrVFc0f64YheJgHjE7hJFieVenQdw==
   
+  "@material/floating-label@^3.2.0":
+    version "3.2.0"
+    resolved "https://registry.yarnpkg.com/@material/floating-label/-/floating-label-3.2.0.tgz#6de47528d1534b7d87f42286ed952fe63153c4d9"
+    integrity sha512-szzsSou+xXj3E6InEuOCr8E28IE5EdcBfKRaHoR5EBkzgcRxLuZkFSqD19zsUgVErdTCcRSbeU9mYa6cP8+Nzw==
+    dependencies:
+      "@material/animation" "^3.1.0"
+      "@material/base" "^3.1.0"
+      "@material/rtl" "^3.2.0"
+      "@material/theme" "^3.1.0"
+      "@material/typography" "^3.1.0"
+      tslib "^1.9.3"
+  
+  "@material/line-ripple@^3.1.0":
+    version "3.1.0"
+    resolved "https://registry.yarnpkg.com/@material/line-ripple/-/line-ripple-3.1.0.tgz#63a4f41f2a2a5df01c2e229a76fc2b0735cd62c0"
+    integrity sha512-o6E6wrDqoOK4esCnM1MQ9t7DC/JQrzSrwYsYdqtOpGnr3G5Jx7WWVt6GEVh2eNXy8OnVYkJdQbMjyPVEVJb/Dg==
+    dependencies:
+      "@material/animation" "^3.1.0"
+      "@material/base" "^3.1.0"
+      "@material/theme" "^3.1.0"
+      tslib "^1.9.3"
+  
   "@material/list@^3.2.0":
     version "3.2.0"
     resolved "https://registry.yarnpkg.com/@material/list/-/list-3.2.0.tgz#f14c277f0ffe09d4f0875f0add6daa8b87633d36"
@@ -181,6 +200,19 @@ Lockfile:
       "@material/shape" "^3.1.0"
       "@material/theme" "^3.1.0"
       "@material/typography" "^3.1.0"
+      tslib "^1.9.3"
+  
+  "@material/notched-outline@^3.2.0":
+    version "3.2.0"
+    resolved "https://registry.yarnpkg.com/@material/notched-outline/-/notched-outline-3.2.0.tgz#3b7e79e6282e747a18e97b0d0c79f06eab924aa0"
+    integrity sha512-IFuxVoQqlOy/WSSawI2Fglh/U1hS0QtVUiGsc8GUoVUd1pifn7RXidHP3vQrMDEo8M/RwA9p6uveQKjPwW41RA==
+    dependencies:
+      "@material/animation" "^3.1.0"
+      "@material/base" "^3.1.0"
+      "@material/floating-label" "^3.2.0"
+      "@material/rtl" "^3.2.0"
+      "@material/shape" "^3.1.0"
+      "@material/theme" "^3.1.0"
       tslib "^1.9.3"
   
   "@material/ripple@^3.2.0":
@@ -206,6 +238,24 @@ Lockfile:
     integrity sha512-Oyvs7YjHfByA0e9IVVp7ojAlPwgSu3Bl0cioiE0OdkidkAaNu0izM2ryRzMBDH5o8+lRD0kpZoT+9CVVCdaYIg==
     dependencies:
       "@material/feature-targeting" "^3.1.0"
+  
+  "@material/textfield@^3.2.0":
+    version "3.2.0"
+    resolved "https://registry.yarnpkg.com/@material/textfield/-/textfield-3.2.0.tgz#c4272601f9a57f26fd7fce8b3089a5d5d6595ad1"
+    integrity sha512-xPWDkTzurMOxvH0+DsenzboF7dFoUeLcbqX/9vyhWe3aPlO6ZWFNn3lAmYN24ElqR5FEr5zXNYfeIQ4JLT5mYw==
+    dependencies:
+      "@material/animation" "^3.1.0"
+      "@material/base" "^3.1.0"
+      "@material/dom" "^3.1.0"
+      "@material/floating-label" "^3.2.0"
+      "@material/line-ripple" "^3.1.0"
+      "@material/notched-outline" "^3.2.0"
+      "@material/ripple" "^3.2.0"
+      "@material/rtl" "^3.2.0"
+      "@material/shape" "^3.1.0"
+      "@material/theme" "^3.1.0"
+      "@material/typography" "^3.1.0"
+      tslib "^1.9.3"
   
   "@material/theme@^3.1.0":
     version "3.1.0"
@@ -325,6 +375,22 @@ Lockfile:
       "@material/drawer" "^3.2.0"
       "@smui/common" "^1.0.0"
   
+  "@smui/floating-label@^1.0.0":
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/@smui/floating-label/-/floating-label-1.0.0.tgz#0107ee361a86a2fc9cb398db59477686a4d61258"
+    integrity sha512-hENrFBzdOxqcykGqfgRY8FFKzRuxhTND++3OkygGSwTiN6UoYhGWiOUp67yTYEfxe60M8WQ36xLqnvwBe0bNgA==
+    dependencies:
+      "@material/floating-label" "^3.2.0"
+      "@smui/common" "^1.0.0"
+  
+  "@smui/line-ripple@^1.0.0":
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/@smui/line-ripple/-/line-ripple-1.0.0.tgz#5958f8fdc72255e2f2e9c1dc17b4ecea42d6039f"
+    integrity sha512-SzV9mfOANagwwP2vuGvuPMD7jSRVgXXwUp8maJjit/ZI+UYY791nkR3JdUj1byx3PWB8TC9hdsd1CTXAQMtkow==
+    dependencies:
+      "@material/line-ripple" "^3.1.0"
+      "@smui/common" "^1.0.0"
+  
   "@smui/list@^1.0.0":
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/@smui/list/-/list-1.0.0.tgz#3ea1d641cba68229adf1e805af172d2a3704d1eb"
@@ -335,6 +401,14 @@ Lockfile:
       "@smui/common" "^1.0.0"
       "@smui/ripple" "^1.0.0"
   
+  "@smui/notched-outline@^1.0.0":
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/@smui/notched-outline/-/notched-outline-1.0.0.tgz#5883638c52039745d77b412f4a90fc043630574e"
+    integrity sha512-jhRJ6J3UFuhRY83Bt4wZqGvoCTIWTuLreBCkHZCWJXH7LG6u6BtdbDY5SPwPxsg9yuTqOFt2Ys+T7kF0W1Nn7w==
+    dependencies:
+      "@material/notched-outline" "^3.2.0"
+      "@smui/common" "^1.0.0"
+  
   "@smui/ripple@^1.0.0":
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/@smui/ripple/-/ripple-1.0.0.tgz#3e4d232de0274d3a49aaa23105845fe60c7a5ef8"
@@ -342,10 +416,19 @@ Lockfile:
     dependencies:
       "@material/ripple" "^3.2.0"
   
-  "@sveltejs/svelte-subdivide@^2.2.0":
-    version "2.2.0"
-    resolved "https://registry.yarnpkg.com/@sveltejs/svelte-subdivide/-/svelte-subdivide-2.2.0.tgz#d22b636cd66fe4c87ee368fd4c0689b316537d7a"
-    integrity sha512-VTxVVfa9TNYZ8iMJUS6TtaAiyppvRVZbPDwvM1LZs+X1clRS9z7xqNEH0m9ov/OaBaIjBvYWiqbkAGuTFrhhRQ==
+  "@smui/textfield@^1.0.0":
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/@smui/textfield/-/textfield-1.0.0.tgz#50200a5619bac1e6093baa7fbc54d13f223a18d3"
+    integrity sha512-11ItfGpSv2Gu8Dd5nOEGVoXfsIeaQUocZUZbK7fV0qTor3TsKvDor7XdyumtrqVdGUqTBEC6xmDBYFtEo392sQ==
+    dependencies:
+      "@material/feature-targeting" "^3.1.0"
+      "@material/ripple" "^3.2.0"
+      "@material/rtl" "^3.2.0"
+      "@material/textfield" "^3.2.0"
+      "@smui/common" "^1.0.0"
+      "@smui/floating-label" "^1.0.0"
+      "@smui/line-ripple" "^1.0.0"
+      "@smui/notched-outline" "^1.0.0"
   
   "@szmarczak/http-timer@^1.1.2":
     version "1.1.2"
@@ -776,11 +859,6 @@ Lockfile:
       balanced-match "^1.0.0"
       concat-map "0.0.1"
   
-  brace@^0.11.1:
-    version "0.11.1"
-    resolved "https://registry.yarnpkg.com/brace/-/brace-0.11.1.tgz#4896fcc9d544eef45f4bb7660db320d3b379fe58"
-    integrity sha1-SJb8ydVE7vRfS7dmDbMg07N5/lg=
-  
   braces@^3.0.1, braces@~3.0.2:
     version "3.0.2"
     resolved "https://registry.yarnpkg.com/braces/-/braces-3.0.2.tgz#3454e1a462ee8d599e236df336cd9ea4f8afe107"
@@ -1124,7 +1202,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
     integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
   
-  codemirror@^5.47.0, codemirror@^5.58.2:
+  codemirror@^5.58.2:
     version "5.58.2"
     resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.58.2.tgz#ed54a1796de1498688bea1cdd4e9eeb187565d1b"
     integrity sha512-K/hOh24cCwRutd1Mk3uLtjWzNISOkm4fvXiMO7LucCrqbh6aJDdtqUziim3MZUI6wOY0rvY1SlL1Ork01uMy6w==
@@ -3567,11 +3645,6 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
     integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
   
-  monaco-editor@^0.21.2:
-    version "0.21.2"
-    resolved "https://registry.yarnpkg.com/monaco-editor/-/monaco-editor-0.21.2.tgz#37054e63e480d51a2dd17d609dcfb192304d5605"
-    integrity sha512-jS51RLuzMaoJpYbu7F6TPuWpnWTLD4kjRW0+AZzcryvbxrTwhNy1KC9yboyKpgMTahpUbDUsuQULoo0GV1EPqg==
-  
   mri@^1.1.0:
     version "1.1.6"
     resolved "https://registry.yarnpkg.com/mri/-/mri-1.1.6.tgz#49952e1044db21dbf90f6cd92bc9c9a777d415a6"
@@ -4789,7 +4862,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/resolve-from/-/resolve-from-5.0.0.tgz#c35225843df8f776df21c57557bc087e9dfdfc69"
     integrity sha512-qYg9KP24dD5qka9J47d0aVky0N+b4fTU89LN9iDnjB5waksiC49rvMB0PrUJQGoTmH50XPiqOvAjDfaijGxYZw==
   
-  resolve@^1.10.0, resolve@^1.11.0, resolve@^1.11.1, resolve@^1.16.0, resolve@^1.17.0:
+  resolve@^1.10.0, resolve@^1.11.0, resolve@^1.11.1, resolve@^1.16.1, resolve@^1.17.0:
     version "1.18.1"
     resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.18.1.tgz#018fcb2c5b207d2a6424aee361c5a266da8f4130"
     integrity sha512-lDfCPaMKfOJXjy0dPayzPdF1phampNWr3qFCjAu+rw/qbQmr5jWH5xN2hwh9QKfw9E5v4hwV7A+jrCmL8yjjqA==
@@ -4867,7 +4940,7 @@ Lockfile:
     dependencies:
       livereload "^0.9.1"
   
-  rollup-plugin-node-resolve@^5.0.3, rollup-plugin-node-resolve@^5.2.0:
+  rollup-plugin-node-resolve@^5.2.0:
     version "5.2.0"
     resolved "https://registry.yarnpkg.com/rollup-plugin-node-resolve/-/rollup-plugin-node-resolve-5.2.0.tgz#730f93d10ed202473b1fb54a5997a7db8c6d8523"
     integrity sha512-jUlyaDXts7TW2CqQ4GaO5VJ4PwwaV8VUGA7+km3n6k6xtOEacf61u0VXwN80phY/evMcaS+9eIeJ9MOyDxt5Zw==
@@ -4878,10 +4951,10 @@ Lockfile:
       resolve "^1.11.1"
       rollup-pluginutils "^2.8.1"
   
-  rollup-plugin-postcss@^2.0.5:
-    version "2.9.0"
-    resolved "https://registry.yarnpkg.com/rollup-plugin-postcss/-/rollup-plugin-postcss-2.9.0.tgz#e6ea0a1b8fdc4a49fc0385da58804e332750c282"
-    integrity sha512-Y7qDwlqjZMBexbB1kRJf+jKIQL8HR6C+ay53YzN+nNJ64hn1PNZfBE3c61hFUhD//zrMwmm7uBW30RuTi+CD0w==
+  rollup-plugin-postcss@^3.1.8:
+    version "3.1.8"
+    resolved "https://registry.yarnpkg.com/rollup-plugin-postcss/-/rollup-plugin-postcss-3.1.8.tgz#d1bcaf8eb0fcb0936e3684c22dd8628d13a82fd1"
+    integrity sha512-JHnGfW8quNc6ePxEkZ05HEZ1YiRxDgY9RKEetMfsrwxR2kh/d90OVScTc6b1c2Q17Cs/5TRYL+1uddG21lQe3w==
     dependencies:
       chalk "^4.0.0"
       concat-with-sourcemaps "^1.1.0"
@@ -4893,7 +4966,7 @@ Lockfile:
       postcss-load-config "^2.1.0"
       postcss-modules "^2.0.0"
       promise.series "^0.2.0"
-      resolve "^1.16.0"
+      resolve "^1.16.1"
       rollup-pluginutils "^2.8.2"
       safe-identifier "^0.4.1"
       style-inject "^0.3.0"
@@ -5520,14 +5593,6 @@ Lockfile:
       source-map "^0.7.3"
       svelte-preprocess "^4.0.0"
       typescript "*"
-  
-  svelte-codemirror@^1.2.1:
-    version "1.2.1"
-    resolved "https://registry.yarnpkg.com/svelte-codemirror/-/svelte-codemirror-1.2.1.tgz#fb50cf6c7f80eabf8fb1b284d4e2e98f37ccf02d"
-    integrity sha512-84mLVSGCy5x3fuH/PvGtlzBJSHeFTWVlPc4ZMvmPZOqh/aP2JqLE/XGzk2iqGMzph/jZs2IDQva4ZaM8m5Q6Aw==
-    dependencies:
-      codemirror "^5.47.0"
-      rollup-plugin-node-resolve "^5.0.3"
   
   svelte-preprocess@^4.0.0:
     version "4.5.2"
