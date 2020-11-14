@@ -44,7 +44,7 @@
 </script>
 
 <style>
-    .container {
+    .split-container {
         position: relative;
         width: 100%;
         height: 100%;
@@ -121,7 +121,7 @@
     .bottom { bottom: 0; }
 </style>
 
-<div class="container" bind:this={refs.container}>
+<div class="split-container" bind:this={refs.container}>
     <div class="pane" style="{dimension}: {pos}%;">
         <slot name="a"></slot>
     </div>

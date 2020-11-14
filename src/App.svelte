@@ -24,13 +24,11 @@
 
 <main>
     <div class="header">
-<!--        <p>Here is header</p>-->
-        <Button>New Request</Button>
+        <button class="button is-primary">New Request</button>
     </div>
 
     <div class="list-editor-container">
         <SplitPane type="horizontal" pos="25" class="split-pane">
-<!--        <SplitPaneFlex type="horizontal" pos="25" class="split-pane">-->
             <section slot=a class="split-section request-list-section">
                 <RequestList state="{rootState}" />
             </section>
@@ -41,7 +39,6 @@
                 </div>
             </section>
         </SplitPane>
-<!--        </SplitPaneFlex>-->
     </div>
 </main>
 

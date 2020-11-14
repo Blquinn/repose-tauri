@@ -1,8 +1,4 @@
 <script lang="ts">
-    import List, {Item, Text} from '@smui/list';
-    import Textfield, {Input, Textarea} from '@smui/textfield';
-    import Icon from '@smui/textfield/icon/index';
-
     import type {RootState} from "./state";
     import {writable} from "svelte/store";
 
@@ -12,6 +8,8 @@
     interface Request {
         text: string;
     }
+
+    let activeRequest: Request | null = null;
 
     let requests: Request[] = [
         {text: 'Gray Kittens'},
@@ -25,27 +23,40 @@
 </script>
 
 <main>
-    <Textfield class="shaped-outlined" variant="outlined" withTrailingIcon bind:value={searchText}
-               label="Filter" input$aria-controls="helper-text-shaped-outlined-c"
-               input$aria-describedby="helper-text-shaped-outlined-c">
-<!--        <Icon class="material-icons">delete</Icon>-->
-    </Textfield>
-    <List class="request-list">
-        {#each requests as request}
-            <Item href="javascript:void(0)" on:click={() => {
-                state.update(current => { return {...current, clicked: request.text}});
-                localStorage.setItem('clicked', request.text)
-            }}>
-                <Text>{ request.text }</Text>
-            </Item>
-        {/each}
-    </List>
+<!--    <div class="input-wrap">-->
+<!--        <input class="input search-input is-rounded" type="text" placeholder="Text input">-->
+<!--    </div>-->
+    <div class="input-wrap">
+        <div class="field">
+            <p class="control has-icons has-icons-right">
+                <input class="input is-rounded search-input" type="email" placeholder="Filter">
+                <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                </span>
+            </p>
+        </div>
+    </div>
+
+<!--    <List class="request-list">-->
+<!--    <div class="request-list-">-->
+<!--        {#each requests as request}-->
+<!--            <div><span>{request.text}</span></div>-->
+<!--        {/each}-->
+<!--    </div>-->
+    <aside class="menu">
+        <ul class="menu-list">
+            {#each requests as request}
+                <li on:click={() => { activeRequest = request; }}>
+                    <a class="{request === activeRequest ? 'is-active' : ''}">{request.text}</a>
+                </li>
+            {/each}
+        </ul>
+    </aside>
+<!--    </List>-->
 </main>
 
 <style>
-    main {
-        /*overflow-y: scroll;*/
-        /*height: 100%;*/
-        /*height: 100vh;*/
+    .input-wrap {
+        padding: 5px 5px 5px 5px;
     }
 </style>
