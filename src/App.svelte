@@ -3,7 +3,8 @@
     import SplitPane from './SplitPane.svelte';
     import RequestList from './RequestList.svelte';
     import CodeMirror from './CodeMirror.svelte';
-    import Button from '@smui/button';
+
+    import '../theme/theme.scss';
 
     import {writable} from "svelte/store";
     import type {RootState} from "./state";

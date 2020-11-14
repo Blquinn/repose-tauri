@@ -9,13 +9,9 @@
     "validate": "svelte-check"
   },
   "devDependencies": {
-    "@material/typography": "^3.1.0",
     "@rollup/plugin-commonjs": "^14.0.0",
     "@rollup/plugin-node-resolve": "^10.0.0",
     "@rollup/plugin-typescript": "^6.0.0",
-    "@smui/button": "^1.0.0",
-    "@smui/drawer": "^1.0.0",
-    "@smui/list": "^1.0.0",
     "@tsconfig/svelte": "^1.0.0",
     "node-sass": "^5.0.0",
     "rollup": "^2.3.4",
@@ -35,7 +31,6 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
-    "@smui/textfield": "^1.0.0",
     "bulma": "^0.9.1",
     "codemirror": "^5.58.2",
     "tauri": "^0.12.0",

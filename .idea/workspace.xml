@@ -11,14 +11,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba87d7ef-99f6-45c2-bbfd-052dcc86b844" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/repose.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/repose.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/theme/theme.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rollup.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/rollup.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RequestList.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/RequestList.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SplitPane.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/SplitPane.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/theme/_smui-theme.scss" beforeDir="false" afterPath="$PROJECT_DIR$/theme/_smui-theme.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/theme/_smui-theme.scss" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +82,7 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.svelte dev">
+  <component name="RunManager" selected="Compound.Dev">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -143,7 +142,7 @@
       <option name="presentableId" value="Default" />
       <updated>1604712438809</updated>
       <workItem from="1604712440359" duration="25789000" />
-      <workItem from="1605224741215" duration="10385000" />
+      <workItem from="1605224741215" duration="11325000" />
     </task>
     <servers />
   </component>
@@ -170,22 +169,22 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="578" y="290" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1605235087438" />
-    <state width="1638" height="303" key="GridCell.Tab.0.bottom" timestamp="1605372394288">
+    <state width="1638" height="303" key="GridCell.Tab.0.bottom" timestamp="1605375818841">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="303" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1605372394288" />
-    <state width="1638" height="303" key="GridCell.Tab.0.center" timestamp="1605372394286">
+    <state width="1638" height="303" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1605375818841" />
+    <state width="1638" height="303" key="GridCell.Tab.0.center" timestamp="1605375818841">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="303" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1605372394286" />
-    <state width="1638" height="303" key="GridCell.Tab.0.left" timestamp="1605372394286">
+    <state width="1638" height="303" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1605375818841" />
+    <state width="1638" height="303" key="GridCell.Tab.0.left" timestamp="1605375818840">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="303" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1605372394286" />
-    <state width="1638" height="303" key="GridCell.Tab.0.right" timestamp="1605372394287">
+    <state width="1638" height="303" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1605375818840" />
+    <state width="1638" height="303" key="GridCell.Tab.0.right" timestamp="1605375818841">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="303" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1605372394287" />
+    <state width="1638" height="303" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1605375818841" />
     <state x="328" y="118" key="SettingsEditor" timestamp="1605314064268">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
@@ -194,9 +193,9 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="100" y="123" width="1480" height="827" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1605315979473" />
-    <state x="541" y="291" width="598" height="490" key="find.popup" timestamp="1605314109973">
+    <state x="541" y="291" width="598" height="490" key="find.popup" timestamp="1605375203709">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state x="541" y="291" width="598" height="490" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1605314109973" />
+    <state x="541" y="291" width="598" height="490" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1605375203709" />
   </component>
 </project>

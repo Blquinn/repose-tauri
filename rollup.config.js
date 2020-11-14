@@ -68,7 +68,7 @@ export default {
 		}),
 		postcss({
 			extract: true,
-			minimize: true,
+			minimize: !!production,
 			use: [
 				['sass', {
 					includePaths: [
