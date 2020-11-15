@@ -3,22 +3,6 @@
 
     export let show = true;
 
-    enum ActiveTab {
-        Params = 'Params',
-        Headers = 'Headers',
-        Body = 'Body',
-    }
-
-    const methods = [
-        'GET',
-        'POST',
-        'PUT',
-        'PATCH',
-        'DELETE',
-        'HEAD',
-        'OPTIONS',
-    ];
-
     let editor: any = null;
 </script>
 
@@ -37,9 +21,5 @@
 <style>
     main {
         height: 100%;
-    }
-    .request-details-bar > * {
-        margin-left: 2px;
-        margin-right: 2px;
     }
 </style>

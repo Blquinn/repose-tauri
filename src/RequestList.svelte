@@ -17,32 +17,21 @@
         {text: '100 Pounds of Gravel'},
         {text: 'All of the Shrimp'},
         {text: 'A Planet with a Mall'},
-        // {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'},
-        // {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'}, {text: 'A Planet with a Mall'},
     ]
 </script>
 
 <main>
-<!--    <div class="input-wrap">-->
-<!--        <input class="input search-input is-rounded" type="text" placeholder="Text input">-->
-<!--    </div>-->
     <div class="input-wrap">
         <div class="field">
             <p class="control has-icons has-icons-right">
                 <input class="input is-rounded search-input" type="email" placeholder="Filter">
                 <span class="icon is-small is-right">
-                    <i class="fas fa-check"></i>
+                    <i class="fas fa-search"></i>
                 </span>
             </p>
         </div>
     </div>
 
-<!--    <List class="request-list">-->
-<!--    <div class="request-list-">-->
-<!--        {#each requests as request}-->
-<!--            <div><span>{request.text}</span></div>-->
-<!--        {/each}-->
-<!--    </div>-->
     <aside class="menu">
         <ul class="menu-list">
             {#each requests as request}
@@ -52,7 +41,6 @@
             {/each}
         </ul>
     </aside>
-<!--    </List>-->
 </main>
 
 <style>
