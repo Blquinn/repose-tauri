@@ -43,8 +43,8 @@
 </script>
 
 <main>
-    <div class="header navbar is-dark">
-        <button class="button is-primary">
+    <div class="header navbar is-primary is-radiusless">
+        <button class="button is-primary is-inverted">
             <span class="icon is-medium">
                 <i class="far fa-plus"></i>
             </span>
@@ -68,8 +68,8 @@
                         </select>
                     </div>
                     <input type="text" class="input" placeholder="Url">
-                    <button class="button is-link">Send</button>
-                    <button class="button is-link">Save</button>
+                    <button class="button is-link is-outlined">Send</button>
+                    <button class="button is-link is-outlined">Save</button>
                 </div>
 
                 <div class="request-response-buttons buttons is-centered has-addons">
@@ -135,6 +135,13 @@
     .request-response-buttons {
         margin-top: 5px;
         margin-bottom: 0;
+    }
+    .request-editor-section {
+        display: flex;
+        flex-direction: column;
+    }
+    .request-editor-section > * {
+        flex-shrink: 0;
     }
 	@media (min-width: 640px) {
 		main {

@@ -1,6 +1,8 @@
-<script>
+<script lang="ts">
     import CodeMirror from './codemirror';
     import {onMount, createEventDispatcher} from 'svelte';
+
+    export let show: boolean = true;
 
     const dispatch = createEventDispatcher();
     export let readonly = false;
@@ -76,7 +78,7 @@
         if (editor) editor.clearHistory();
     }
 
-    const refs = {};
+    const refs: any = {};
     let editor;
     let updating_externally = false;
     let marker;
@@ -227,7 +229,8 @@
     }
 </style>
 
-<div class='codemirror-container' class:flex bind:offsetWidth={w} bind:offsetHeight={h}>
+<div style="{show ? '' : 'display: none;'}"
+        class="codemirror-container" class:flex bind:offsetWidth={w} bind:offsetHeight={h}>
     <!-- svelte-ignore a11y-positive-tabindex -->
 <!--    <textarea-->
 <!--            tabindex='2'-->

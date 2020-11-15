@@ -1,5 +1,6 @@
 <script lang="ts">
     import CodeMirror from "./CodeMirror.svelte";
+    import ParamTable from "./ParamTable.svelte";
 
     export let show = true;
 
@@ -8,6 +9,8 @@
         Headers = 'Headers',
         Body = 'Body',
     }
+
+    let activeTab: ActiveTab = ActiveTab.Params;
 
     const methods = [
         'GET',
@@ -25,21 +28,41 @@
 <main style="{show ? '' : 'display: none;'}">
     <div class="tabs">
         <ul>
-            <li><a href="#">Params</a></li>
-            <li><a href="#">Headers</a></li>
-            <li class="is-active"><a href="#">Body</a></li>
+            <li class={activeTab === ActiveTab.Params ? 'is-active' : ''}
+                on:click={() => activeTab = ActiveTab.Params}
+            ><a href="#">Params</a></li>
+            <li class={activeTab === ActiveTab.Headers ? 'is-active' : ''}
+                on:click={() => activeTab = ActiveTab.Headers}
+            ><a href="#">Headers</a></li>
+            <li class={activeTab === ActiveTab.Body ? 'is-active' : ''}
+                on:click={() => activeTab = ActiveTab.Body}
+            ><a href="#">Body</a></li>
         </ul>
     </div>
 
-    <CodeMirror bind:this={editor} />
+    <div class="active-component-container">
+        <ParamTable show={activeTab === ActiveTab.Params} />
+        <ParamTable show={activeTab === ActiveTab.Headers} />
+        <CodeMirror show={activeTab === ActiveTab.Body} bind:this={editor} />
+    </div>
 </main>
 
 <style>
     main {
-        height: 100%;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
     }
     .request-details-bar > * {
         margin-left: 2px;
         margin-right: 2px;
+    }
+    .tabs {
+        flex-shrink: 0;
+    }
+    .active-component-container {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
     }
 </style>
