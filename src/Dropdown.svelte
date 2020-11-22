@@ -34,5 +34,6 @@
 <style>
     .value {
         min-width: 5em;
+        text-align: left;
     }
 </style>
