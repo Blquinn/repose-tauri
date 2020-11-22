@@ -9,6 +9,7 @@
 
     import {writable} from "svelte/store";
     import type {RootState} from "./state";
+    import Dropdown from "./Dropdown.svelte";
 
     let rootState = writable<RootState>({
         clicked: '',
@@ -60,13 +61,7 @@
 
             <section slot=b class="split-section request-editor-section">
                 <div class="request-details-bar">
-                    <div class="select" id="method-select">
-                        <select>
-                            {#each methods as method}
-                                <option>{method}</option>
-                            {/each}
-                        </select>
-                    </div>
+                    <Dropdown options={methods} />
                     <input type="text" class="input" placeholder="Url">
                     <button class="button is-link">Send</button>
                     <button class="button is-link">Save</button>
