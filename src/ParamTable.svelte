@@ -119,6 +119,7 @@
 <style>
     main {
         width: 100%;
+        height: 100%;
         overflow-y: auto;
         flex-grow: 1;
     }

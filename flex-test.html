@@ -19,15 +19,17 @@
             flex-direction: column;
         }
 
-        .top {
+        .other-thing {
+            height: 100px;
             background-color: red;
         }
 
-        .bottom {
-            background-color: blue;
+        .textarea-wrapper {
+            flex: 1;
+            min-height: 0;
         }
 
-        #editor {
+        .textarea {
             height: 100%;
             width: 100%;
         }
@@ -35,20 +37,12 @@
 </head>
 <body>
 
-<!--<textarea id="editor"></textarea>-->
-<div id="editor"></div>
-
-<script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", function(){
-        let el = document.getElementById('editor');
-        // CodeMirror.fromTextArea(el, {
-        //     lineNumbers: true,
-        // })
-        CodeMirror(el, {
-            lineNumbers: true,
-        });
-    });
-</script>
+<div class="container">
+    <div class="other-thing"></div>
+    <div class="textarea-wrapper">
+        <textarea class="textarea"></textarea>
+    </div>
+</div>
 
 </body>
 </html>

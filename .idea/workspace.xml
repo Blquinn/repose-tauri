@@ -11,16 +11,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba87d7ef-99f6-45c2-bbfd-052dcc86b844" name="Default Changelist" comment="Param table impl">
-      <change afterPath="$PROJECT_DIR$/src/ParamTable.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rollup.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/rollup.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flex-test.html" beforeDir="false" afterPath="$PROJECT_DIR$/flex-test.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CodeMirror.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/CodeMirror.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ParamTable.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/ParamTable.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RequestEditor.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/RequestEditor.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/theme/theme.scss" beforeDir="false" afterPath="$PROJECT_DIR$/theme/theme.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn-error.log" beforeDir="false" afterPath="$PROJECT_DIR$/yarn-error.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +146,7 @@
       <option name="presentableId" value="Default" />
       <updated>1604712438809</updated>
       <workItem from="1604712440359" duration="25789000" />
-      <workItem from="1605224741215" duration="30218000" />
+      <workItem from="1605224741215" duration="40718000" />
     </task>
     <task id="LOCAL-00001" summary="Move to sass">
       <created>1605375990220</created>
@@ -165,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605455696980</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Param table impl">
+      <created>1605478298880</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1605478298880</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,22 +201,22 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="578" y="290" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1605235087438" />
-    <state width="1638" height="303" key="GridCell.Tab.0.bottom" timestamp="1605478236667">
+    <state width="1638" height="303" key="GridCell.Tab.0.bottom" timestamp="1606069680708">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="303" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1605478236667" />
-    <state width="1638" height="303" key="GridCell.Tab.0.center" timestamp="1605478236666">
+    <state width="1638" height="303" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1606069680708" />
+    <state width="1638" height="303" key="GridCell.Tab.0.center" timestamp="1606069680705">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="303" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1605478236666" />
-    <state width="1638" height="303" key="GridCell.Tab.0.left" timestamp="1605478236666">
+    <state width="1638" height="303" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1606069680705" />
+    <state width="1638" height="303" key="GridCell.Tab.0.left" timestamp="1606069680704">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="303" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1605478236666" />
-    <state width="1638" height="303" key="GridCell.Tab.0.right" timestamp="1605478236667">
+    <state width="1638" height="303" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1606069680704" />
+    <state width="1638" height="303" key="GridCell.Tab.0.right" timestamp="1606069680706">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="303" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1605478236667" />
+    <state width="1638" height="303" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1606069680706" />
     <state x="328" y="118" key="SettingsEditor" timestamp="1605314064268">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
@@ -221,9 +225,9 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="99" y="123" width="1480" height="827" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1605453866055" />
-    <state x="541" y="291" width="598" height="490" key="find.popup" timestamp="1605455455212">
+    <state x="541" y="291" width="598" height="490" key="find.popup" timestamp="1605498061842">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state x="541" y="291" width="598" height="490" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1605455455212" />
+    <state x="541" y="291" width="598" height="490" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1605498061842" />
   </component>
 </project>

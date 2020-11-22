@@ -112,7 +112,10 @@
     // }
     onMount(() => {
         // createEditor(mode || 'plain');
+
         createEditor(mode || 'json');
+
+
         // (async () => {
         //     // if (!_CodeMirror) {
         //     //     let mod = await codemirror_promise;
@@ -170,7 +173,6 @@
         // editor = CodeMirror.fromTextArea(refs.editor, opts);
         console.log('Creating editor')
         editor = CodeMirror(refs.editor, opts);
-        // editor = CodeMirror.fromTextArea(refs.editor, opts);
         editor.on('change', instance => {
             if (!updating_externally) {
                 const value = instance.getValue();
@@ -183,24 +185,42 @@
 
 <style>
     .codemirror-container {
+        flex: 1;
         position: relative;
-        width: 100%;
-        height: 100%;
-        border: none;
         line-height: 1.5;
-        overflow: hidden;
     }
 
-    .codemirror-container :global(.CodeMirror) {
+    .editor {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+
+    .editor :global(.CodeMirror) {
+        width: 100%;
         height: 100%;
         background: transparent;
         font: 400 14px/1.7 var(--font-mono);
         color: var(--base);
     }
 
-    .codemirror-container.flex :global(.CodeMirror) {
-        height: auto;
+    .editor.flex :global(.CodeMirror-lines) {
+        padding: 0;
     }
+
+    .editor :global(.CodeMirror-gutters) {
+        padding: 0 16px 0 8px;
+        border: none;
+    }
+
+    /*.editor :global(.error-loc) {*/
+    /*    position: relative;*/
+    /*    border-bottom: 2px solid #da106e;*/
+    /*}*/
+
+    /*.editor :global(.error-line) {*/
+    /*    background-color: rgba(200, 0, 0, .05);*/
+    /*}*/
 
     .codemirror-container.flex :global(.CodeMirror-lines) {
         padding: 0;
@@ -211,26 +231,13 @@
         border: none;
     }
 
-    .codemirror-container :global(.error-loc) {
-        position: relative;
-        border-bottom: 2px solid #da106e;
-    }
-
-    .codemirror-container :global(.error-line) {
-        background-color: rgba(200, 0, 0, .05);
-    }
-
     textarea {
         visibility: hidden;
-    }
-
-    .editor {
-        height: 100%;
     }
 </style>
 
 <div style="{show ? '' : 'display: none;'}"
-        class="codemirror-container" class:flex bind:offsetWidth={w} bind:offsetHeight={h}>
+    class="codemirror-container" class:flex bind:offsetWidth={w} bind:offsetHeight={h}>
     <!-- svelte-ignore a11y-positive-tabindex -->
 <!--    <textarea-->
 <!--            tabindex='2'-->
@@ -238,5 +245,5 @@
 <!--            readonly-->
 <!--            value={code}-->
 <!--    ></textarea>-->
-    <div class="editor" tabindex='2' bind:this={refs.editor} value={code}></div>
+    <div class="editor" class:flex tabindex='2' bind:this={refs.editor} value={code}></div>
 </div>

@@ -68,8 +68,8 @@
                         </select>
                     </div>
                     <input type="text" class="input" placeholder="Url">
-                    <button class="button is-link is-outlined">Send</button>
-                    <button class="button is-link is-outlined">Save</button>
+                    <button class="button is-link">Send</button>
+                    <button class="button is-link">Save</button>
                 </div>
 
                 <div class="request-response-buttons buttons is-centered has-addons">

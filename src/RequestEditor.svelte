@@ -23,6 +23,8 @@
     ];
 
     let editor: any = null;
+
+    let acHeight: number = 0;
 </script>
 
 <main style="{show ? '' : 'display: none;'}">
@@ -43,7 +45,7 @@
     <div class="active-component-container">
         <ParamTable show={activeTab === ActiveTab.Params} />
         <ParamTable show={activeTab === ActiveTab.Headers} />
-        <CodeMirror show={activeTab === ActiveTab.Body} bind:this={editor} />
+        <CodeMirror show={activeTab === ActiveTab.Body} bind:this={editor} flex={true} />
     </div>
 </main>
 
@@ -61,8 +63,11 @@
         flex-shrink: 0;
     }
     .active-component-container {
-        flex-grow: 1;
+        flex: 1;
         display: flex;
         flex-direction: column;
+        min-height: 0;
+        /*display: block;*/
+        /*height: 100%;*/
     }
 </style>
