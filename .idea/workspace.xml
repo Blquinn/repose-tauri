@@ -10,42 +10,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba87d7ef-99f6-45c2-bbfd-052dcc86b844" name="Default Changelist" comment="Make method dropdown pretty">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="ba87d7ef-99f6-45c2-bbfd-052dcc86b844" name="Default Changelist" comment="Start using svelte/state">
+      <change afterPath="$PROJECT_DIR$/src/RequestResponseContainer.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto/Roboto-Black.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto/Roboto-BlackItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto/Roboto-Bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto/Roboto-BoldItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto/Roboto-Italic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto/Roboto-Light.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto/Roboto-LightItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto/Roboto-Medium.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto/Roboto-MediumItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto/Roboto-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto/Roboto-Thin.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto/Roboto-ThinItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto_Mono/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto_Mono/README.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto_Mono/RobotoMono-Italic-VariableFont_wght.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto_Mono/RobotoMono-VariableFont_wght.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto_Mono/static/RobotoMono-Bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto_Mono/static/RobotoMono-BoldItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto_Mono/static/RobotoMono-ExtraLight.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto_Mono/static/RobotoMono-ExtraLightItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto_Mono/static/RobotoMono-Italic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto_Mono/static/RobotoMono-Light.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto_Mono/static/RobotoMono-LightItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto_Mono/static/RobotoMono-Medium.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto_Mono/static/RobotoMono-MediumItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto_Mono/static/RobotoMono-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto_Mono/static/RobotoMono-SemiBold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto_Mono/static/RobotoMono-SemiBoldItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto_Mono/static/RobotoMono-Thin.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Roboto_Mono/static/RobotoMono-ThinItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/tauri.conf.json" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/tauri.conf.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Dropdown.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dropdown.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RequestEditor.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/RequestEditor.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RequestList.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/RequestList.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ResponseViewer.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResponseViewer.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/state.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/theme/theme.scss" beforeDir="false" afterPath="$PROJECT_DIR$/theme/theme.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +45,7 @@
         <option value="ParamTable" />
         <option value="Dropdown.svelte" />
         <option value="TypeScript File" />
+        <option value="RequestResponseContainer" />
       </list>
     </option>
   </component>
@@ -117,7 +93,7 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Compound.Dev">
+  <component name="RunManager" selected="npm.tauri dev">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -180,7 +156,7 @@
       <option name="presentableId" value="Default" />
       <updated>1604712438809</updated>
       <workItem from="1604712440359" duration="25789000" />
-      <workItem from="1605224741215" duration="43345000" />
+      <workItem from="1605224741215" duration="49200000" />
     </task>
     <task id="LOCAL-00001" summary="Move to sass">
       <created>1605375990220</created>
@@ -231,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606081782316</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Setup tauri production build">
+      <created>1606083685627</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1606083685627</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,7 +237,9 @@
     <MESSAGE value="Param table impl" />
     <MESSAGE value="Finally get code editor to fill height" />
     <MESSAGE value="Make method dropdown pretty" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make method dropdown pretty" />
+    <MESSAGE value="Setup tauri production build" />
+    <MESSAGE value="Start using svelte/state" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start using svelte/state" />
   </component>
   <component name="WindowStateProjectService">
     <state x="304" y="198" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604712768806">
@@ -265,22 +250,22 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="578" y="290" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1605235087438" />
-    <state width="1638" height="303" key="GridCell.Tab.0.bottom" timestamp="1606082660888">
+    <state width="1638" height="303" key="GridCell.Tab.0.bottom" timestamp="1606095869781">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="303" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1606082660888" />
-    <state width="1638" height="303" key="GridCell.Tab.0.center" timestamp="1606082660887">
+    <state width="1638" height="303" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1606095869781" />
+    <state width="1638" height="303" key="GridCell.Tab.0.center" timestamp="1606095869781">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="303" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1606082660887" />
-    <state width="1638" height="303" key="GridCell.Tab.0.left" timestamp="1606082660886">
+    <state width="1638" height="303" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1606095869781" />
+    <state width="1638" height="303" key="GridCell.Tab.0.left" timestamp="1606095869780">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="303" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1606082660886" />
-    <state width="1638" height="303" key="GridCell.Tab.0.right" timestamp="1606082660887">
+    <state width="1638" height="303" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1606095869780" />
+    <state width="1638" height="303" key="GridCell.Tab.0.right" timestamp="1606095869781">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="303" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1606082660887" />
+    <state width="1638" height="303" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1606095869781" />
     <state x="328" y="118" key="SettingsEditor" timestamp="1605314064268">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
@@ -293,9 +278,9 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="99" y="123" width="1480" height="827" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1605453866055" />
-    <state x="541" y="291" width="681" height="490" key="find.popup" timestamp="1606083322181">
+    <state x="541" y="291" width="681" height="548" key="find.popup" timestamp="1606097678867">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state x="541" y="291" width="681" height="490" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1606083322181" />
+    <state x="541" y="291" width="681" height="548" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1606097678867" />
   </component>
 </project>

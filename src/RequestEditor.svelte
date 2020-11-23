@@ -12,16 +12,6 @@
 
     let activeTab: ActiveTab = ActiveTab.Params;
 
-    const methods = [
-        'GET',
-        'POST',
-        'PUT',
-        'PATCH',
-        'DELETE',
-        'HEAD',
-        'OPTIONS',
-    ];
-
     let editor: any = null;
 
     let acHeight: number = 0;
@@ -32,13 +22,13 @@
         <ul>
             <li class={activeTab === ActiveTab.Params ? 'is-active' : ''}
                 on:click={() => activeTab = ActiveTab.Params}
-            ><a href="#">Params</a></li>
+            ><a href="/#">Params</a></li>
             <li class={activeTab === ActiveTab.Headers ? 'is-active' : ''}
                 on:click={() => activeTab = ActiveTab.Headers}
-            ><a href="#">Headers</a></li>
+            ><a href="/#">Headers</a></li>
             <li class={activeTab === ActiveTab.Body ? 'is-active' : ''}
                 on:click={() => activeTab = ActiveTab.Body}
-            ><a href="#">Body</a></li>
+            ><a href="/#">Body</a></li>
         </ul>
     </div>
 
@@ -67,7 +57,5 @@
         display: flex;
         flex-direction: column;
         min-height: 0;
-        /*display: block;*/
-        /*height: 100%;*/
     }
 </style>

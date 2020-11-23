@@ -4,48 +4,23 @@
     import {Client} from "./client";
     import SplitPane from './SplitPane.svelte';
     import RequestList from './RequestList.svelte';
-    import RequestEditor from './RequestEditor.svelte';
-    import ResponseViewer from "./ResponseViewer.svelte";
 
-    import {writable} from "svelte/store";
-    import type {RootState} from "./state";
-    import Dropdown from "./Dropdown.svelte";
-
-    let rootState = writable<RootState>({
-        clicked: '',
-    });
+    import { activeRequest, requests } from "./state";
+    import RequestResponseContainer from "./RequestResponseContainer.svelte";
+    import type {RequestModel} from "./types";
 
     let client = new Client();
 
-    let editor: any = null;
-
-    enum ActiveDirection {
-        Request,
-        Response
+    function addNewRequest() {
+        const req: RequestModel = {name: null, method: 'GET', url: 'http://blq.me', requestBody: null};
+        activeRequest.set(req);
+        requests.update(curr => [...curr, req]);
     }
-
-    let direction = ActiveDirection.Request;
-
-    enum ActiveTab {
-        Params = 'Params',
-        Headers = 'Headers',
-        Body = 'Body',
-    }
-
-    const methods = [
-        'GET',
-        'POST',
-        'PUT',
-        'PATCH',
-        'DELETE',
-        'HEAD',
-        'OPTIONS',
-    ];
 </script>
 
 <main>
     <div class="header navbar is-primary is-radiusless">
-        <button class="button is-primary is-inverted">
+        <button class="button is-primary is-inverted" on:click={addNewRequest}>
             <span class="icon is-medium">
                 <i class="far fa-plus"></i>
             </span>
@@ -54,35 +29,21 @@
     </div>
 
     <div class="list-editor-container">
-        <SplitPane type="horizontal" pos="25" class="split-pane">
-            <section slot=a class="split-section request-list-section">
-                <RequestList state="{rootState}" />
-            </section>
+        {#if $activeRequest}
+            <SplitPane type="horizontal" pos="25" class="split-pane">
+                <section slot=a class="split-section request-list-section">
+                    <RequestList />
+                </section>
 
-            <section slot=b class="split-section request-editor-section">
-                <div class="request-details-bar">
-                    <Dropdown options={methods} />
-                    <input type="text" class="input" placeholder="Url">
-                    <button class="button is-link">Send</button>
-                    <button class="button is-link">Save</button>
-                </div>
-
-                <div class="request-response-buttons buttons is-centered has-addons">
-                    <button
-                            class="button {direction === ActiveDirection.Request ? 'is-info is-selected' : ''}"
-                            on:click={() => direction = ActiveDirection.Request}
-                    >Request</button>
-                    <button
-                            class="button {direction === ActiveDirection.Response ? 'is-info is-selected' : ''}"
-                            on:click={() => direction = ActiveDirection.Response}
-                    >Response</button>
-                </div>
-
-                <!-- Use show to prevent instantiating the components repeatedly. -->
-                <RequestEditor show={direction === ActiveDirection.Request} />
-                <ResponseViewer show={direction === ActiveDirection.Response} />
-            </section>
-        </SplitPane>
+                <section slot=b class="split-section request-editor-section">
+                    <RequestResponseContainer />
+                </section>
+            </SplitPane>
+        {:else}
+            <div class="no-request-container">
+                <h4>No request selected.</h4>
+            </div>
+        {/if}
     </div>
 </main>
 
@@ -107,36 +68,20 @@
     }
     .list-editor-container {
         flex: auto;
-        overflow-y: hidden;
         display: flex;
         flex-direction: column;
     }
     .request-list-section {
         overflow-y: auto;
     }
-    .split-pane {
-        max-height: 100%;
-        flex-grow: 1;
-    }
-    .request-details-bar {
-        padding: 5px;
+    .no-request-container {
+        flex: 1;
         display: flex;
-        flex-direction: row;
+        align-items: center;
+        justify-content: center;
     }
-    .request-details-bar > * {
-        margin-left: 2px;
-        margin-right: 2px;
-    }
-    .request-response-buttons {
-        margin-top: 5px;
-        margin-bottom: 0;
-    }
-    .request-editor-section {
-        display: flex;
-        flex-direction: column;
-    }
-    .request-editor-section > * {
-        flex-shrink: 0;
+    .no-request-container > h4 {
+        text-align: center;
     }
 	@media (min-width: 640px) {
 		main {

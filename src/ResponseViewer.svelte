@@ -9,9 +9,9 @@
 <main style="{show ? '' : 'display: none;'}">
     <div class="tabs">
         <ul>
-            <li><a href="#">Params</a></li>
-            <li><a href="#">Headers</a></li>
-            <li class="is-active"><a href="#">Body</a></li>
+            <li><a href="/#">Params</a></li>
+            <li><a href="/#">Headers</a></li>
+            <li class="is-active"><a href="/#">Body</a></li>
         </ul>
     </div>
 

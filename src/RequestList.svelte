@@ -1,23 +1,5 @@
 <script lang="ts">
-    import type {RootState} from "./state";
-    import {writable} from "svelte/store";
-
-    export let state: writable<RootState>;
-    let searchText = '';
-
-    interface Request {
-        text: string;
-    }
-
-    let activeRequest: Request | null = null;
-
-    let requests: Request[] = [
-        {text: 'Gray Kittens'},
-        {text: 'A Space Rocket'},
-        {text: '100 Pounds of Gravel'},
-        {text: 'All of the Shrimp'},
-        {text: 'A Planet with a Mall'},
-    ]
+    import {requests, activeRequest} from "./state";
 </script>
 
 <main>
@@ -34,9 +16,10 @@
 
     <aside class="menu">
         <ul class="menu-list">
-            {#each requests as request}
-                <li on:click={() => { activeRequest = request; }}>
-                    <a class="{request === activeRequest ? 'is-active' : ''}">{request.text}</a>
+            {#each $requests as request}
+                <li on:click={() => { activeRequest.set(request) }}>
+                    <a class="{request === $activeRequest ? 'is-active' : ''}" href="/#"
+                    >{request.name ?? 'New Request'}</a>
                 </li>
             {/each}
         </ul>

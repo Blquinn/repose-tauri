@@ -1,7 +1,7 @@
 <script lang="ts">
     import {clickOutside} from "./click_outside";
 
-    export let options: string[];
+    export let options: string[] = [];
     export let activeValue: string | null = options.length > 0 ? options[0] : null;
 
     let active = false;
@@ -19,7 +19,7 @@
     <div class="dropdown-menu" id="dropdown-menu" role="menu">
         <div class="dropdown-content">
             {#each options as option}
-                <a href="#"
+                <a href="/#"
                    class="dropdown-item"
                    on:click={() => {
                        activeValue = option;
