@@ -16,6 +16,7 @@
     let mode;
 
     const modes = {
+        plain: null,
         js: {
             name: 'javascript',
             json: false
@@ -30,6 +31,14 @@
         },
         md: {
             name: 'markdown'
+        },
+        html: {
+            name: 'text/html',
+            htmlMode: true,
+        },
+        xml: {
+            name: 'text/html',
+            htmlMode: false,
         }
     };
 
@@ -41,7 +50,8 @@
         if (new_mode !== mode) {
             // createEditor(mode = new_mode);
             // editor.setMode(new_mode)
-            editor.setOption("mode", modes[new_mode] || {name: new_mode});
+            let mode = modes[new_mode] || {name: new_mode}
+            editor.setOption("mode", mode);
         }
         code = new_code;
         updating_externally = true;
@@ -170,9 +180,8 @@
         // Creating a text editor is a lot of work, so we yield
         // the main thread for a moment. This helps reduce jank
         if (destroyed) return;
-        // editor = CodeMirror.fromTextArea(refs.editor, opts);
-        console.log('Creating editor')
         editor = CodeMirror(refs.editor, opts);
+        // editor = CodeMirror.fromTextArea(refs.editor, opts);
         editor.on('change', instance => {
             if (!updating_externally) {
                 const value = instance.getValue();
@@ -240,10 +249,11 @@
     class="codemirror-container" class:flex bind:offsetWidth={w} bind:offsetHeight={h}>
     <!-- svelte-ignore a11y-positive-tabindex -->
 <!--    <textarea-->
+<!--            class="editor"-->
 <!--            tabindex='2'-->
 <!--            bind:this={refs.editor}-->
 <!--            readonly-->
 <!--            value={code}-->
 <!--    ></textarea>-->
-    <div class="editor" class:flex tabindex='2' bind:this={refs.editor} value={code}></div>
+    <div class="editor" class:flex tabindex='2' bind:this={refs.editor}></div>
 </div>

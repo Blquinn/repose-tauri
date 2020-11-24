@@ -1,3 +1,5 @@
+import type {HttpResponse} from "./tauri/http";
+
 export type Method =
     'GET'
     | 'POST'
@@ -18,8 +20,11 @@ export const methods: Method[] = [
 ];
 
 export interface RequestModel {
+    id: string;
     name?: string;
     method: Method;
     url: string;
     requestBody?: string;
+    isLoading: boolean;
+    lastResponse?: HttpResponse;
 }

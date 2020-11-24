@@ -16,9 +16,9 @@
 
     <aside class="menu">
         <ul class="menu-list">
-            {#each $requests as request}
+            {#each $requests as request (request.id)}
                 <li on:click={() => { activeRequest.set(request) }}>
-                    <a class="{request === $activeRequest ? 'is-active' : ''}" href="/#"
+                    <a class="{request.id === $activeRequest.id ? 'is-active' : ''}" href="/#"
                     >{request.name ?? 'New Request'}</a>
                 </li>
             {/each}

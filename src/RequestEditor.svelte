@@ -51,6 +51,7 @@
     }
     .tabs {
         flex-shrink: 0;
+        margin-bottom: 3px;
     }
     .active-component-container {
         flex: 1;

@@ -8,13 +8,18 @@
     import { activeRequest, requests } from "./state";
     import RequestResponseContainer from "./RequestResponseContainer.svelte";
     import type {RequestModel} from "./types";
+    import { v1 as uuidv1 } from 'uuid'
 
     let client = new Client();
 
     function addNewRequest() {
-        const req: RequestModel = {name: null, method: 'GET', url: 'http://blq.me', requestBody: null};
+        const req: RequestModel = { id: uuidv1(), name: null, method: 'GET', url: 'http://blq.me', isLoading: false};
         activeRequest.set(req);
         requests.update(curr => [...curr, req]);
+    }
+
+    $: if ($requests.length > 0 && !$activeRequest) {
+        activeRequest.update(_ => $requests[0]);
     }
 </script>
 

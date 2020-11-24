@@ -4,17 +4,29 @@
     import ResponseViewer from "./ResponseViewer.svelte";
     import { methods } from "./types";
     import { activeRequest } from "./state";
+    import { defaultClient } from "./client";
+    import type { HttpResponse } from "./tauri/http";
 
     enum ActiveDirection { Request, Response }
 
     let direction = ActiveDirection.Request;
+
+    async function sendRequest() {
+        const res: HttpResponse = await defaultClient.request($activeRequest.method, $activeRequest.url);
+        direction = ActiveDirection.Response;
+        activeRequest.update(r => { return {
+            ...r,
+            isLoading: false,
+            lastResponse: res,
+        }});
+    }
 </script>
 
 <main>
     <div class="request-details-bar">
         <Dropdown options={methods} activeValue={$activeRequest.method} />
         <input type="text" class="input" placeholder="Url" value={$activeRequest.url}>
-        <button class="button is-link">Send</button>
+        <button class="button is-link" on:click={sendRequest}>Send</button>
         <button class="button is-link">Save</button>
     </div>
 
