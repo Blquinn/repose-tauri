@@ -19,12 +19,8 @@ fn main() {
                 Ok(command) => {
                     match command {
                         ReposeHttpRequest { request, callback, error } => {
-                            tauri::execute_promise(
-                                _webview,
-                                move || {
-                                    println!("Got http request.");
-                                    let response = http::do_request(request);
-                                    Ok(response)
+                            tauri::execute_promise(_webview, move || {
+                                    Ok(http::do_request(request))
                                 },
                                 callback,
                                 error,

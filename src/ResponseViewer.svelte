@@ -1,6 +1,7 @@
 <script lang="ts">
     import {activeRequest} from "./state";
     import CodeMirror from "./CodeMirror.svelte";
+    import {onMount} from "svelte";
 
     export let show = true;
 
@@ -40,6 +41,10 @@
 
         editor.set(lastBody ?? 'Empty response.', mode);
     }
+
+    onMount(() => {
+        editor.set('Body is empty', 'plain');
+    });
 </script>
 
 <main style="{show ? '' : 'display: none;'}">
@@ -81,6 +86,7 @@
     .headers {
         overflow-wrap: break-word;
         overflow-y: scroll;
+        padding: 5px;
     }
     .tabs {
         margin-bottom: 3px;

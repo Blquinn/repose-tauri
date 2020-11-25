@@ -2,21 +2,17 @@
     import Dropdown from "./Dropdown.svelte";
     import RequestEditor from "./RequestEditor.svelte";
     import ResponseViewer from "./ResponseViewer.svelte";
-    import { methods } from "./types";
-    import { activeRequest } from "./state";
-    import { defaultClient } from "./client";
-    import type { HttpResponse } from "./tauri/http";
-
-    enum ActiveDirection { Request, Response }
-
-    let direction = ActiveDirection.Request;
+    import {methods, RequestResponseDirection} from "./types";
+    import {activeRequest} from "./state";
+    import {defaultClient} from "./client";
+    import type {HttpResponse} from "./tauri/http";
 
     async function sendRequest() {
         const res: HttpResponse = await defaultClient.request($activeRequest.method, $activeRequest.url);
-        direction = ActiveDirection.Response;
         activeRequest.update(r => { return {
             ...r,
             isLoading: false,
+            requestResponseDirection: RequestResponseDirection.Response,
             lastResponse: res,
         }});
     }
@@ -24,25 +20,24 @@
 
 <main>
     <div class="request-details-bar">
-        <Dropdown options={methods} activeValue={$activeRequest.method} />
-        <input type="text" class="input" placeholder="Url" value={$activeRequest.url}>
+        <Dropdown options={methods} bind:activeValue={$activeRequest.method} />
+        <input type="text" class="input" placeholder="Url" bind:value={$activeRequest.url}>
         <button class="button is-link" on:click={sendRequest}>Send</button>
         <button class="button is-link">Save</button>
     </div>
 
     <div class="request-response-buttons buttons is-centered has-addons">
-        <button class="button {
-                direction === ActiveDirection.Request ? 'is-info is-selected' : ''}"
-                on:click={() => direction = ActiveDirection.Request}
+        <button class="button {$activeRequest.requestResponseDirection === RequestResponseDirection.Request ? 'is-info is-selected' : ''}"
+                on:click={() => activeRequest.update(curr => { return {...curr, requestResponseDirection: RequestResponseDirection.Request}})}
         >Request</button>
-        <button class="button {direction === ActiveDirection.Response ? 'is-info is-selected' : ''}"
-                on:click={() => direction = ActiveDirection.Response}
+        <button class="button {$activeRequest.requestResponseDirection === RequestResponseDirection.Response ? 'is-info is-selected' : ''}"
+                on:click={() => activeRequest.update(curr => { return {...curr, requestResponseDirection: RequestResponseDirection.Response}})}
         >Response</button>
     </div>
 
     <!-- Use show to prevent instantiating the components repeatedly. -->
-    <RequestEditor show={direction === ActiveDirection.Request} />
-    <ResponseViewer show={direction === ActiveDirection.Response} />
+    <RequestEditor show={$activeRequest.requestResponseDirection === RequestResponseDirection.Request} />
+    <ResponseViewer show={$activeRequest.requestResponseDirection === RequestResponseDirection.Response} />
 </main>
 
 <style>
@@ -66,5 +61,8 @@
     .request-response-buttons {
         margin-top: 5px;
         margin-bottom: 0;
+    }
+    .request-response-buttons button {
+        min-width: 100px;
     }
 </style>

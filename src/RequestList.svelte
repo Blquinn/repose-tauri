@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {requests, activeRequest} from "./state";
+    import {requests, activeRequest, setActiveRequest} from "./state";
 </script>
 
 <main>
@@ -17,7 +17,7 @@
     <aside class="menu">
         <ul class="menu-list">
             {#each $requests as request (request.id)}
-                <li on:click={() => { activeRequest.set(request) }}>
+                <li on:click={() => { setActiveRequest($activeRequest, request) }}>
                     <a class="{request.id === $activeRequest.id ? 'is-active' : ''}" href="/#"
                     >{request.name ?? 'New Request'}</a>
                 </li>

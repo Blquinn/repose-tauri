@@ -55,7 +55,10 @@
         }
         code = new_code;
         updating_externally = true;
-        if (editor) editor.setValue(code);
+        if (editor) {
+            editor.setValue(code);
+            editor.refresh();
+        }
         updating_externally = false;
     }
 

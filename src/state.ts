@@ -1,14 +1,20 @@
 import { writable, Writable } from "svelte/store";
-import { v1 as uuidv1 } from 'uuid';
 
-import type { RequestModel } from "./types";
+import type { RequestState } from "./types";
+import {newRequestState} from "./types";
 
-export const requests: Writable<RequestModel[]> = writable([
-    { id: uuidv1(), name: 'Gray Kittens', method: 'GET', url: 'https://jsonplaceholder.typicode.com/comments', requestBody: null, isLoading: false },
-    { id: uuidv1(), name: 'A Space Rocket', method: 'GET', url: 'http://google.com', requestBody: null, isLoading: false },
-    { id: uuidv1(), name: '100 Pounds of Gravel', method: 'GET', url: 'http://google.com', requestBody: null, isLoading: false },
-    { id: uuidv1(), name: 'All of the Shrimp', method: 'POST', url: 'http://google.com', requestBody: null, isLoading: false },
-    { id: uuidv1(), name: 'A Planet with a Mall', method: 'GET', url: 'http://google.com', requestBody: null, isLoading: false },
+export const requests: Writable<RequestState[]> = writable([
+    newRequestState('GET', 'https://jsonplaceholder.typicode.com/comments'),
+    newRequestState('GET', 'http://google.com'),
+    newRequestState('GET', 'http://google.com'),
+    newRequestState('POST', 'http://google.com'),
+    newRequestState('GET', 'http://google.com'),
 ]);
 
-export const activeRequest: Writable<RequestModel | null> = writable(null);
+export const activeRequest: Writable<RequestState | null> = writable(null);
+
+export function setActiveRequest(current: RequestState | null, newRequest: RequestState | null) {
+    console.log(current, newRequest);
+    if (current) requests.update(reqs => reqs.map(r => r.id === current.id ? current : r));
+    activeRequest.update(_ => newRequest);
+}

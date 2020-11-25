@@ -7,13 +7,12 @@
 
     import { activeRequest, requests } from "./state";
     import RequestResponseContainer from "./RequestResponseContainer.svelte";
-    import type {RequestModel} from "./types";
-    import { v1 as uuidv1 } from 'uuid'
+    import {newRequestState} from "./types";
 
     let client = new Client();
 
     function addNewRequest() {
-        const req: RequestModel = { id: uuidv1(), name: null, method: 'GET', url: 'http://blq.me', isLoading: false};
+        const req = newRequestState('GET', 'https://blq.me');
         activeRequest.set(req);
         requests.update(curr => [...curr, req]);
     }
