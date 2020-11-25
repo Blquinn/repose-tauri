@@ -18,7 +18,6 @@ export function updateRequest(req: RequestState) {
 }
 
 export function setActiveRequest(current: RequestState | null, newRequest: RequestState | null) {
-    console.log(current, newRequest);
     if (current) updateRequest(current);
     activeRequest.update(_ => newRequest);
 }

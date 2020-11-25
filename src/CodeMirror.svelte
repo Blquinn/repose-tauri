@@ -46,7 +46,7 @@
     // than making this state-driven through props,
     // because it's difficult to update an editor
     // without resetting scroll otherwise
-    export async function set(new_code, new_mode) {
+    export async function set(new_code: string, new_mode: string) {
         if (new_mode !== mode) {
             // createEditor(mode = new_mode);
             // editor.setMode(new_mode)
@@ -57,12 +57,18 @@
         updating_externally = true;
         if (editor) {
             editor.setValue(code);
-            editor.refresh();
+            setTimeout(function() {
+                editor.refresh();
+            }, 1);
         }
         updating_externally = false;
     }
 
-    export function update(new_code) {
+    export function getValue(): string {
+        return editor ? editor.getValue() : '';
+    }
+
+    export function update(new_code: string) {
         code = new_code;
         if (editor) {
             const {left, top} = editor.getScrollInfo();
@@ -187,8 +193,7 @@
         // editor = CodeMirror.fromTextArea(refs.editor, opts);
         editor.on('change', instance => {
             if (!updating_externally) {
-                const value = instance.getValue();
-                dispatch('change', {value});
+                dispatch('change', null);
             }
         });
         editor.refresh();

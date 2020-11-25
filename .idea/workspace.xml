@@ -13,13 +13,12 @@
     <cargoProject FILE="$PROJECT_DIR$/src-tauri/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba87d7ef-99f6-45c2-bbfd-052dcc86b844" name="Default Changelist" comment="Create central mutable state">
+    <list default="true" id="ba87d7ef-99f6-45c2-bbfd-052dcc86b844" name="Default Changelist" comment="Request name input">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CodeMirror.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/CodeMirror.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RequestEditor.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/RequestEditor.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RequestList.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/RequestList.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RequestResponseContainer.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/RequestResponseContainer.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ResponseViewer.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResponseViewer.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/state.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +155,7 @@
       <option name="presentableId" value="Default" />
       <updated>1604712438809</updated>
       <workItem from="1604712440359" duration="25789000" />
-      <workItem from="1605224741215" duration="84879000" />
+      <workItem from="1605224741215" duration="88650000" />
     </task>
     <task id="LOCAL-00001" summary="Move to sass">
       <created>1605375990220</created>
@@ -235,7 +234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606276734194</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Request name input">
+      <created>1606280257156</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1606280257156</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,7 +268,8 @@
     <MESSAGE value="Start using svelte/state" />
     <MESSAGE value="Create custom tauri http client." />
     <MESSAGE value="Create central mutable state" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create central mutable state" />
+    <MESSAGE value="Request name input" />
+    <option name="LAST_COMMIT_MESSAGE" value="Request name input" />
   </component>
   <component name="WindowStateProjectService">
     <state x="304" y="198" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606099370441">
@@ -277,22 +284,22 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="578" y="290" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1605235087438" />
-    <state width="1638" height="326" key="GridCell.Tab.0.bottom" timestamp="1606275758599">
+    <state width="1638" height="289" key="GridCell.Tab.0.bottom" timestamp="1606335654659">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="326" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1606275758599" />
-    <state width="1638" height="326" key="GridCell.Tab.0.center" timestamp="1606275758599">
+    <state width="1638" height="289" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1606335654659" />
+    <state width="1638" height="289" key="GridCell.Tab.0.center" timestamp="1606335654658">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="326" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1606275758599" />
-    <state width="1638" height="326" key="GridCell.Tab.0.left" timestamp="1606275758598">
+    <state width="1638" height="289" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1606335654658" />
+    <state width="1638" height="289" key="GridCell.Tab.0.left" timestamp="1606335654657">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="326" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1606275758598" />
-    <state width="1638" height="326" key="GridCell.Tab.0.right" timestamp="1606275758599">
+    <state width="1638" height="289" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1606335654657" />
+    <state width="1638" height="289" key="GridCell.Tab.0.right" timestamp="1606335654658">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="326" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1606275758599" />
+    <state width="1638" height="289" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1606335654658" />
     <state x="328" y="118" key="SettingsEditor" timestamp="1605314064268">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
@@ -305,9 +312,9 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="99" y="123" width="1480" height="827" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1605453866055" />
-    <state x="541" y="291" width="681" height="548" key="find.popup" timestamp="1606276073828">
+    <state x="541" y="291" width="681" height="548" key="find.popup" timestamp="1606338208431">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state x="541" y="291" width="681" height="548" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1606276073828" />
+    <state x="541" y="291" width="681" height="548" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1606338208431" />
   </component>
 </project>

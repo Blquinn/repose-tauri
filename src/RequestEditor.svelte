@@ -4,6 +4,7 @@
     import {ActiveRequestBodyTab, ActiveRequestEditorTab} from "./types";
     import type {RequestState} from "./types";
     import {activeRequest} from "./state";
+    import {onMount} from "svelte";
 
     export let show = true;
 
@@ -26,6 +27,29 @@
             return { ...r, activeRequestBody: tab } as RequestState;
         });
     }
+
+    let lastRequestId: string | undefined = undefined;
+    const emptyBodyMsg = ''
+
+    activeRequest.subscribe(req => {
+        if (!editor) return;
+
+        if (!req) {
+            editor.set(emptyBodyMsg, 'plain');
+            return;
+        }
+
+        // TODO: Store request mode in state.
+
+        if (req.id !== lastRequestId) {
+            editor.set(req.requestBody ?? emptyBodyMsg, 'json');
+            lastRequestId = req.id;
+        }
+    });
+
+    onMount(() => {
+        editor.set(emptyBodyMsg, 'plain');
+    });
 </script>
 
 <main style="{show ? '' : 'display: none;'}">
@@ -55,6 +79,14 @@
             </div>
 
             <CodeMirror bind:this={editor} flex={true}
+                        on:change={_ => {
+                            const val = editor.getValue();
+
+                            activeRequest.update(req => {
+                                if (!req) return;
+                                return { ...req, requestBody: val };
+                            })
+                        }}
                         show={$activeRequest.activeRequestBody === ActiveRequestBodyTab.Raw} />
 
             <div class="tabs tabs-up">

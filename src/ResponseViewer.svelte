@@ -10,7 +10,6 @@
     enum DisplaySection { Headers, ResponseBody }
     let active = DisplaySection.ResponseBody;
 
-    let lastBody: string | undefined = undefined;
 
     const mimeModeMap = {
         'application/json': 'json',
@@ -20,10 +19,19 @@
         'text/html': 'html',
     }
 
-    $: if (editor && $activeRequest && $activeRequest.lastResponse && lastBody !== $activeRequest.lastResponse?.body) {
-        const lastResponse = $activeRequest.lastResponse;
+    let lastBody: string | undefined = undefined;
+    const emptyBodyMsg = 'Empty Response'
+
+    activeRequest.subscribe(req => {
+        if (!editor) return;
+
+        if (!req) {
+            editor.set(emptyBodyMsg, 'plain');
+            return;
+        }
 
         let mode = 'plain';
+        const lastResponse = req.lastResponse;
         if (lastResponse) {
             const ct = lastResponse.headers.get('content-type');
             if (ct) {
@@ -35,15 +43,17 @@
                     if (m) mode = m;
                 }
             }
+
+            lastBody = lastResponse.body;
+        } else {
+            lastBody = undefined;
         }
 
-        lastBody = lastResponse?.body;
-
-        editor.set(lastBody ?? 'Empty response.', mode);
-    }
+        editor.set(lastBody ?? emptyBodyMsg, mode);
+    });
 
     onMount(() => {
-        editor.set('Body is empty', 'plain');
+        editor.set(emptyBodyMsg, 'plain');
     });
 </script>
 
