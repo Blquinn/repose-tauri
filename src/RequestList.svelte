@@ -19,7 +19,7 @@
             {#each $requests as request (request.id)}
                 <li on:click={() => { setActiveRequest($activeRequest, request) }}>
                     <a class="{request.id === $activeRequest.id ? 'is-active' : ''}" href="/#"
-                    >{request.name ?? 'New Request'}</a>
+                    >{request.name === '' ? 'New Request' : request.name}</a>
                 </li>
             {/each}
         </ul>

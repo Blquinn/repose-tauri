@@ -38,7 +38,7 @@ export interface RequestState {
     method: Method;
     url: string;
     id: string;
-    name?: string;
+    name: string;
     requestBody?: string;
     requestResponseDirection: RequestResponseDirection;
     activeRequestEditor: ActiveRequestEditorTab;
@@ -53,28 +53,10 @@ export function newRequestState(method: Method, url: string, params: Partial<Req
         method,
         url,
         isLoading: false,
+        name: '',
         requestResponseDirection: RequestResponseDirection.Request,
         activeRequestEditor: ActiveRequestEditorTab.Params,
         activeRequestBody: ActiveRequestBodyTab.None,
         ...params,
     }
 }
-
-// export class RequestState {
-//     constructor(
-//         public method: Method,
-//         public url: string,
-//         public id: string = v1(),
-//         public name?: string,
-//         public requestBody?: string,
-//         public requestResponseDirection: RequestResponseDirection = RequestResponseDirection.Request,
-//         public activeRequestEditor: ActiveRequestEditorTab = ActiveRequestEditorTab.Params,
-//         public activeRequestBody: ActiveRequestBodyTab = ActiveRequestBodyTab.None,
-//         public isLoading: boolean = false,
-//         public lastResponse?: HttpResponse
-//     ) { }
-//
-//     equal(other: RequestState): boolean {
-//         return this.id === other.id;
-//     }
-// }

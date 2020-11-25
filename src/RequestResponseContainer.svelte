@@ -3,7 +3,7 @@
     import RequestEditor from "./RequestEditor.svelte";
     import ResponseViewer from "./ResponseViewer.svelte";
     import {methods, RequestResponseDirection} from "./types";
-    import {activeRequest} from "./state";
+    import {activeRequest, updateRequest} from "./state";
     import {defaultClient} from "./client";
     import type {HttpResponse} from "./tauri/http";
 
@@ -19,11 +19,17 @@
 </script>
 
 <main>
-    <div class="request-details-bar">
-        <Dropdown options={methods} bind:activeValue={$activeRequest.method} />
-        <input type="text" class="input" placeholder="Url" bind:value={$activeRequest.url}>
-        <button class="button is-link" on:click={sendRequest}>Send</button>
-        <button class="button is-link">Save</button>
+    <div class="request-details-container">
+        <input type="text" class="input name-input" placeholder="Name"
+               bind:value={$activeRequest.name}
+               on:change={() => updateRequest($activeRequest)}
+        >
+        <div class="request-details-bar">
+            <Dropdown options={methods} bind:activeValue={$activeRequest.method} />
+            <input type="text" class="input" placeholder="Url" bind:value={$activeRequest.url}>
+            <button class="button is-link" on:click={sendRequest}>Send</button>
+            <button class="button is-link">Save</button>
+        </div>
     </div>
 
     <div class="request-response-buttons buttons is-centered has-addons">
@@ -53,10 +59,13 @@
         margin-left: 2px;
         margin-right: 2px;
     }
-    .request-details-bar {
+    .request-details-container {
         padding: 5px;
+    }
+    .request-details-bar {
         display: flex;
         flex-direction: row;
+        margin-top: 5px;
     }
     .request-response-buttons {
         margin-top: 5px;

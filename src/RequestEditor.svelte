@@ -44,10 +44,18 @@
     <div class="active-component-container">
         <ParamTable show={$activeRequest.activeRequestEditor === ActiveRequestEditorTab.Params} />
         <ParamTable show={$activeRequest.activeRequestEditor === ActiveRequestEditorTab.Headers} />
+
         <div style="{$activeRequest.activeRequestEditor === ActiveRequestEditorTab.Body ? '' : 'display: none;'}"
              class="editor-container"
         >
-            <CodeMirror bind:this={editor} flex={true} />
+            <div style="{$activeRequest.activeRequestBody === ActiveRequestBodyTab.None ? '' : 'display: none;'}"
+                 class="no-request-body-container"
+            >
+                <h4>No Request Body</h4>
+            </div>
+
+            <CodeMirror bind:this={editor} flex={true}
+                        show={$activeRequest.activeRequestBody === ActiveRequestBodyTab.Raw} />
 
             <div class="tabs tabs-up">
                 <ul>
@@ -84,5 +92,14 @@
         flex: 1;
         display: flex;
         flex-direction: column;
+    }
+    .no-request-body-container {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .no-request-container > h4 {
+        text-align: center;
     }
 </style>

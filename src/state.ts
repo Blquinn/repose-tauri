@@ -13,8 +13,12 @@ export const requests: Writable<RequestState[]> = writable([
 
 export const activeRequest: Writable<RequestState | null> = writable(null);
 
+export function updateRequest(req: RequestState) {
+    requests.update(reqs => reqs.map(r => r.id === req.id ? req : r));
+}
+
 export function setActiveRequest(current: RequestState | null, newRequest: RequestState | null) {
     console.log(current, newRequest);
-    if (current) requests.update(reqs => reqs.map(r => r.id === current.id ? current : r));
+    if (current) updateRequest(current);
     activeRequest.update(_ => newRequest);
 }
