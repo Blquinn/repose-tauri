@@ -66,8 +66,8 @@
     </div>
 
     <div class="active-component-container">
-        <ParamTable show={$activeRequest.activeRequestEditor === ActiveRequestEditorTab.Params} />
-        <ParamTable show={$activeRequest.activeRequestEditor === ActiveRequestEditorTab.Headers} />
+        <ParamTable show={$activeRequest.activeRequestEditor === ActiveRequestEditorTab.Params} rows={$activeRequest.params} />
+        <ParamTable show={$activeRequest.activeRequestEditor === ActiveRequestEditorTab.Headers} rows={$activeRequest.headers} />
 
         <div style="{$activeRequest.activeRequestEditor === ActiveRequestEditorTab.Body ? '' : 'display: none;'}"
              class="editor-container"

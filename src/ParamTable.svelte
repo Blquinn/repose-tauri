@@ -1,76 +1,27 @@
 <script lang="ts">
+    import type {ParamTableRow} from "./types";
+
     export let show: boolean = true;
+    export let rows: ParamTableRow[];
 
-    interface ParamRow {
-        key: string;
-        value: string;
-        description: string;
-    }
+    const _r: ParamTableRow = {key: '', value: '', description: ''};
+    let cols: string[] = Object.keys(_r);
 
-    interface CellKey {
-        row: number;
-        col: string;
-    }
-
-    let activeCell: CellKey | null = null;
-
-    let cols = ['key', 'value', 'description'];
-
-    let myRows: ParamRow[] = [
-        {key: 'bar', value: 'baz', description: ''},
-        {key: 'bar', value: 'baz', description: ''},
-        {key: 'bar', value: 'baz', description: ''},
-        {key: 'bar', value: 'baz', description: ''},
-        {key: 'bar', value: 'baz', description: ''},
-        {key: 'bar', value: 'baz', description: ''},
-        {key: 'bar', value: 'baz', description: ''},
-        {key: 'bar', value: 'baz', description: ''},
-        {key: 'bar', value: 'baz', description: ''},
-        {key: 'bar', value: 'baz', description: ''},
-        {key: 'bar', value: 'baz', description: ''},
-        {key: 'bar', value: 'baz', description: ''},
-    ]
-
-    function removeRowIfEmpty(row: ParamRow) {
+    function removeRowIfEmpty(row: ParamTableRow) {
         if (row.key === '') { // Delete row if key is empty.
-            myRows.splice(myRows.indexOf(row), 1);
+            rows.splice(rows.indexOf(row), 1);
         }
     }
 
-    function onInputKeyPress(e: KeyboardEvent) {
-        if (activeCell === null) return;
+    function onCellChanged(i: number, col: string) {
+        if (col !== 'key') { return; }
 
-        if (e.key === 'Enter' || e.key === 'Tab')
-            removeRowIfEmpty(myRows[activeCell.row]);
-
-        if (e.key === 'Enter') activeCell = null;
-
-        // Find next cell and mark it for editing on tab.
-        if (e.key === 'Tab') {
-            e.preventDefault();
-
-            const colIdx = cols.indexOf(activeCell.col);
-            const nextColIdx = (colIdx + 1) % cols.length;
-
-            if (nextColIdx > 0) {
-                activeCell = {
-                    ...activeCell,
-                    col: cols[nextColIdx],
-                };
-                return;
-            }
-
-            if (activeCell.row + 1 >= myRows.length) {
-                activeCell = null;
-                return;
-            }
-
-            activeCell = {
-                ...activeCell,
-                row: activeCell.row + 1,
-                col: cols[nextColIdx],
-            };
+        if (i !== rows.length-1) {
+            removeRowIfEmpty(rows[i]);
+            return;
         }
+
+        rows.push({key: '', value: '', description: ''});
     }
 </script>
 
@@ -81,38 +32,18 @@
             <th>Value</th>
             <th>Description</th>
         </tr>
-        {#each myRows as row, i}
+        {#each rows as row, i}
             <tr>
                 {#each cols as col}
-                    {#if activeCell && i === activeCell.row && col === activeCell.col}
-                        <td>
-                            <input autofocus type="text" class="input is-small"
-                                   bind:value={row[col]}
-                                   on:blur={() => {
-                                       activeCell = null;
-                                       removeRowIfEmpty(row);
-                                   }}
-                                   on:keydown={onInputKeyPress}
-                            >
-                        </td>
-                    {:else}
-                        <td on:click={() => activeCell = {row: i, col: col}}>{row[col]}</td>
-                    {/if}
+                    <td>
+                        <input type="text" class="input" bind:value={row[col]}
+                               autocomplete="off"
+                               on:change={() => onCellChanged(i, col)}
+                        >
+                    </td>
                 {/each}
             </tr>
         {/each}
-        <!-- Last row is a placeholder row. -->
-        {#if myRows[myRows.length-1].key !== ''}
-            <tr>
-                {#each cols as col}
-                    <td on:click={() => {
-                        myRows.push({key: '', value: '', description: ''});
-                        activeCell = {row: myRows.length-1, col: col}
-                    }}
-                    ></td>
-                {/each}
-            </tr>
-        {/if}
     </table>
 </main>
 
@@ -137,5 +68,9 @@
     .input {
         max-width: 100%;
         max-height: 100%;
+    }
+    .input {
+        border: none;
+        height: 30px;
     }
 </style>

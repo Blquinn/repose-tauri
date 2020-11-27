@@ -33,6 +33,11 @@ export enum ActiveRequestBodyTab {
     Raw = "Raw"
 }
 
+export interface ParamTableRow {
+    key: string;
+    value: string;
+    description: string;
+}
 
 export interface RequestState {
     method: Method;
@@ -40,6 +45,8 @@ export interface RequestState {
     id: string;
     name: string;
     requestBody?: string;
+    params: ParamTableRow[];
+    headers: ParamTableRow[];
     requestResponseDirection: RequestResponseDirection;
     activeRequestEditor: ActiveRequestEditorTab;
     activeRequestBody: ActiveRequestBodyTab;
@@ -54,6 +61,8 @@ export function newRequestState(method: Method, url: string, params: Partial<Req
         url,
         isLoading: false,
         name: '',
+        params: [{key: '', value: '', description: ''}],
+        headers: [{key: '', value: '', description: ''}],
         requestResponseDirection: RequestResponseDirection.Request,
         activeRequestEditor: ActiveRequestEditorTab.Params,
         activeRequestBody: ActiveRequestBodyTab.None,
