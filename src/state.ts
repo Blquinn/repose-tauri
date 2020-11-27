@@ -1,7 +1,7 @@
 import { writable, Writable } from "svelte/store";
 
 import type { RequestState } from "./types";
-import {newRequestState} from "./types";
+import { newRequestState } from "./types";
 
 export const requests: Writable<RequestState[]> = writable([
     newRequestState('GET', 'https://jsonplaceholder.typicode.com/comments'),

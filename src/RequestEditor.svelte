@@ -1,15 +1,16 @@
 <script lang="ts">
+    import {clickOutside} from "./click_outside";
     import CodeMirror from "./CodeMirror.svelte";
     import ParamTable from "./ParamTable.svelte";
-    import {ActiveRequestBodyTab, ActiveRequestEditorTab} from "./types";
-    import type {RequestState} from "./types";
+    import type {RequestBodyRaw, RequestState, RequestTypes} from "./types";
+    import {ActiveRequestEditorTab, requestTypeKeys} from "./types";
     import {activeRequest} from "./state";
     import {onMount} from "svelte";
+    import {editorModes} from "./consts";
 
     export let show = true;
 
-    let activeTabs = Object.keys(ActiveRequestEditorTab).map(k => [k,ActiveRequestEditorTab[k]]);
-    let bodyTabs = Object.keys(ActiveRequestBodyTab).map(k => [k, ActiveRequestBodyTab[k]]);
+    const activeTabs = Object.keys(ActiveRequestEditorTab).map(k => [k, ActiveRequestEditorTab[k]]);
 
     let editor: any = null;
     let acHeight: number = 0;
@@ -17,19 +18,23 @@
     function onRequestEditorTabClicked(tab: ActiveRequestEditorTab) {
         activeRequest.update(r => {
             if (!r) return null;
-            return { ...r, activeRequestEditor: tab } as RequestState;
+            return {...r, activeRequestEditor: tab} as RequestState;
         });
     }
 
-    function onRequestEditorBodyClicked(tab: ActiveRequestBodyTab) {
+    function onRequestEditorBodyClicked(type: string) {
         activeRequest.update(r => {
             if (!r) return null;
-            return { ...r, activeRequestBody: tab } as RequestState;
+            return {...r, activeRequestBody: type} as RequestState;
         });
     }
 
+    let lastMode: string | undefined = undefined;
     let lastRequestId: string | undefined = undefined;
     const emptyBodyMsg = ''
+
+    let isRawBodyTypeActive = false;
+    let modes: string[] = Object.keys(editorModes);
 
     activeRequest.subscribe(req => {
         if (!editor) return;
@@ -41,22 +46,58 @@
 
         // TODO: Store request mode in state.
 
-        if (req.id !== lastRequestId) {
-            editor.set(req.requestBody ?? emptyBodyMsg, 'json');
+        const rawBody = req.requestBodies['raw'] as RequestBodyRaw;
+
+        if (req.id !== lastRequestId || rawBody.mode != lastMode) {
+            const body = rawBody.body !== '' ? rawBody.body : emptyBodyMsg;
+            editor.set(body, rawBody.mode);
             lastRequestId = req.id;
+            lastMode = rawBody.mode
         }
     });
+
+    function onEditorChange() {
+        const val = editor.getValue();
+
+        activeRequest.update(req => {
+            if (!req) return;
+
+            const rawBody = req.requestBodies['raw'] as RequestBodyRaw;
+
+            const requestBodies: Record<string, RequestTypes> = {
+                ...req.requestBodies,
+                'raw': { ...rawBody, body: val }
+            };
+
+            return { ...req, requestBodies };
+        });
+    }
+
+    function onRequestModeChanged(mode: string) {
+        activeRequest.update(req => {
+            const rawBody = req.requestBodies['raw'] as RequestBodyRaw;
+
+            const requestBodies: Record<string, RequestTypes> = {
+                ...req.requestBodies,
+                'raw': { ...rawBody, mode: mode }
+            };
+
+            return { ...req, requestBodies }
+        });
+
+        isRawBodyTypeActive = false;
+    }
 
     onMount(() => {
         editor.set(emptyBodyMsg, 'plain');
     });
 </script>
 
-<main style="{show ? '' : 'display: none;'}">
+<main class:is-hidden={!show}>
     <div class="tabs">
         <ul>
             {#each activeTabs as [tab, name]}
-                <li class={$activeRequest.activeRequestEditor === tab ? 'is-active' : ''}
+                <li class:is-active={$activeRequest.activeRequestEditor === tab}
                     on:click={() => onRequestEditorTabClicked(tab)}
                 >
                     <a href="/#">{name}</a>
@@ -66,36 +107,70 @@
     </div>
 
     <div class="active-component-container">
-        <ParamTable show={$activeRequest.activeRequestEditor === ActiveRequestEditorTab.Params} rows={$activeRequest.params} />
-        <ParamTable show={$activeRequest.activeRequestEditor === ActiveRequestEditorTab.Headers} rows={$activeRequest.headers} />
+        <ParamTable rows={$activeRequest.params}
+                    show={$activeRequest.activeRequestEditor === ActiveRequestEditorTab.Params}/>
+        <ParamTable rows={$activeRequest.headers}
+                    show={$activeRequest.activeRequestEditor === ActiveRequestEditorTab.Headers}/>
 
-        <div style="{$activeRequest.activeRequestEditor === ActiveRequestEditorTab.Body ? '' : 'display: none;'}"
-             class="editor-container"
+        <div class="editor-container"
+             class:is-hidden={$activeRequest.activeRequestEditor !== ActiveRequestEditorTab.Body}
         >
-            <div style="{$activeRequest.activeRequestBody === ActiveRequestBodyTab.None ? '' : 'display: none;'}"
-                 class="no-request-body-container"
+            <div class="no-request-body-container"
+                 class:is-hidden={$activeRequest.activeRequestBody !== 'none'}
             >
                 <h4>No Request Body</h4>
             </div>
 
+            <ParamTable rows={
+                        ($activeRequest.activeRequestBody === 'form-data' || $activeRequest.activeRequestBody === 'x-www-form-urlencoded')
+                            ? $activeRequest.requestBodies[$activeRequest.activeRequestBody].rows : []}
+                        show={$activeRequest.activeRequestBody === 'form-data' || $activeRequest.activeRequestBody === 'x-www-form-urlencoded'}
+            />
+
             <CodeMirror bind:this={editor} flex={true}
-                        on:change={_ => {
-                            const val = editor.getValue();
+                        on:blur={onEditorChange}
+                        show={$activeRequest.activeRequestBody === 'raw'} />
 
-                            activeRequest.update(req => {
-                                if (!req) return;
-                                return { ...req, requestBody: val };
-                            })
-                        }}
-                        show={$activeRequest.activeRequestBody === ActiveRequestBodyTab.Raw} />
+            <div class="binary-body" class:is-hidden={$activeRequest.activeRequestBody !== 'binary'}>
+                <div class="binary-body-row">
+                    <input class="button is-primary" on:click={() => alert('clicked file diag')} type="button"
+                           value="Select File...">
+                    <p>{
+                        $activeRequest.requestBodies['binary'].filePath !== ''
+                            ? $activeRequest.requestBodies['binary'].filePath
+                            : 'No file selected'
+                    }</p>
+                </div>
+            </div>
 
-            <div class="tabs tabs-up">
+            <div class="tabs tabs-up" class:overflow-visible={isRawBodyTypeActive}>
                 <ul>
-                    {#each bodyTabs as [tab, name]}
-                        <li class={$activeRequest.activeRequestBody === tab ? 'is-active' : ''}
-                            on:click={() => onRequestEditorBodyClicked(tab)}
-                        >
-                            <a href="/#">{name}</a>
+                    {#each requestTypeKeys as type}
+                        <li class="body-type" class:is-active={$activeRequest.activeRequestBody === type}>
+                            <a href="/#" on:click={() => onRequestEditorBodyClicked(type)}>
+                                <span>{type}</span>
+                                {#if type === 'raw'}
+                                    <span>
+                                        <div class="dropdown is-up is-active" class:is-active={isRawBodyTypeActive} use:clickOutside on:click_outside={() => isRawBodyTypeActive = false}>
+                                            <div class="dropdown-trigger" on:click={() => isRawBodyTypeActive = true}>
+                                                <span class="icon is-small body-type-icon">
+                                                    <i class="fas fa-angle-up" aria-hidden="true"></i>
+                                                </span>
+                                            </div>
+                                            <div class="dropdown-menu" id="dropdown-menu7" role="menu">
+                                                <div class="dropdown-content">
+                                                    {#each modes as mode}
+                                                        <p class="dropdown-item"
+                                                           class:is-active={$activeRequest.requestBodies['raw'].mode === mode}
+                                                           on:click={() => onRequestModeChanged(mode)}
+                                                        >{mode}</p>
+                                                    {/each}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </span>
+                                {/if}
+                            </a>
                         </li>
                     {/each}
                 </ul>
@@ -110,28 +185,57 @@
         display: flex;
         flex-direction: column;
     }
+
     .tabs {
         flex-shrink: 0;
         margin-bottom: 3px;
     }
+
     .active-component-container {
         flex: 1;
         display: flex;
         flex-direction: column;
         min-height: 0;
     }
+
     .editor-container {
         flex: 1;
         display: flex;
         flex-direction: column;
     }
+
     .no-request-body-container {
         flex: 1;
         display: flex;
         align-items: center;
         justify-content: center;
     }
+
     .no-request-container > h4 {
         text-align: center;
+    }
+
+    .binary-body {
+        flex: 1;
+    }
+
+    .binary-body-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .binary-body-row > p {
+        margin-left: 5px;
+    }
+
+    li.body-type {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .overflow-visible {
+        overflow-x: visible;
+        overflow-y: visible;
     }
 </style>

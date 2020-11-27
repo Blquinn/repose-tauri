@@ -21,5 +21,21 @@ html, body {
 
 @import "tabs-up";
 
+.body-type-icon:hover {
+  background-color: $border;
+  border-radius: 50%;
+}
+
+p.dropdown-item, button.dropdown-item {
+  &:hover {
+    background-color: $dropdown-item-hover-background-color;
+    color: $dropdown-item-hover-color;
+  }
+
+  &.is-active {
+    background-color: $dropdown-item-active-background-color;
+    color: $dropdown-item-active-color;
+  }
+}
 ///////////////////////////////////////
 // End Bulma Overrides

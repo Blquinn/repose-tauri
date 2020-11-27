@@ -14,10 +14,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba87d7ef-99f6-45c2-bbfd-052dcc86b844" name="Default Changelist" comment="Fix editor refresh issue.">
+      <change afterPath="$PROJECT_DIR$/src/consts.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParamTable.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/ParamTable.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CodeMirror.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/CodeMirror.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RequestEditor.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/RequestEditor.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/state.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/theme/theme.scss" beforeDir="false" afterPath="$PROJECT_DIR$/theme/theme.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +95,17 @@
     </key>
   </component>
   <component name="RunManager" selected="npm.tauri dev">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Dev" type="CompoundRunConfigurationType">
       <toRun name="tauri dev" type="js.build_tools.npm" />
       <toRun name="svelte dev" type="js.build_tools.npm" />
@@ -143,7 +157,7 @@
       <updated>1604712438809</updated>
       <workItem from="1604712440359" duration="25789000" />
       <workItem from="1605224741215" duration="90386000" />
-      <workItem from="1606490141695" duration="3457000" />
+      <workItem from="1606490141695" duration="14956000" />
     </task>
     <task id="LOCAL-00001" summary="Move to sass">
       <created>1605375990220</created>
@@ -236,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606345686182</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Add param table and headers to state&#10;&#10;Update param table impl">
+      <created>1606497885716</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1606497885716</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,7 +287,8 @@
     <MESSAGE value="Create central mutable state" />
     <MESSAGE value="Request name input" />
     <MESSAGE value="Fix editor refresh issue." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix editor refresh issue." />
+    <MESSAGE value="Add param table and headers to state&#10;&#10;Update param table impl" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add param table and headers to state&#10;&#10;Update param table impl" />
   </component>
   <component name="WindowStateProjectService">
     <state x="304" y="198" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606099370441">
@@ -285,22 +307,22 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="578" y="290" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1605235087438" />
-    <state width="1638" height="309" key="GridCell.Tab.0.bottom" timestamp="1606492603675">
+    <state width="1638" height="309" key="GridCell.Tab.0.bottom" timestamp="1606513915775">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="309" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1606492603675" />
-    <state width="1638" height="309" key="GridCell.Tab.0.center" timestamp="1606492603674">
+    <state width="1638" height="309" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1606513915775" />
+    <state width="1638" height="309" key="GridCell.Tab.0.center" timestamp="1606513915774">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="309" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1606492603674" />
-    <state width="1638" height="309" key="GridCell.Tab.0.left" timestamp="1606492603673">
+    <state width="1638" height="309" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1606513915774" />
+    <state width="1638" height="309" key="GridCell.Tab.0.left" timestamp="1606513915773">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="309" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1606492603673" />
-    <state width="1638" height="309" key="GridCell.Tab.0.right" timestamp="1606492603674">
+    <state width="1638" height="309" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1606513915773" />
+    <state width="1638" height="309" key="GridCell.Tab.0.right" timestamp="1606513915774">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="309" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1606492603674" />
+    <state width="1638" height="309" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1606513915774" />
     <state x="328" y="118" key="SettingsEditor" timestamp="1605314064268">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
@@ -313,9 +335,9 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="99" y="123" width="1480" height="827" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1605453866055" />
-    <state x="541" y="291" width="681" height="548" key="find.popup" timestamp="1606338208431">
+    <state x="541" y="291" width="681" height="548" key="find.popup" timestamp="1606510083986">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state x="541" y="291" width="681" height="548" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1606338208431" />
+    <state x="541" y="291" width="681" height="548" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1606510083986" />
   </component>
 </project>

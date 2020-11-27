@@ -1,6 +1,10 @@
 <script lang="ts">
+    // TODO: Store undo/redo info in the request state.
+    // TODO: Unify color scheme.
+
     import CodeMirror from './codemirror';
     import {onMount, createEventDispatcher} from 'svelte';
+    import {editorModes} from "./consts";
 
     export let show: boolean = true;
 
@@ -15,33 +19,6 @@
     let code = '';
     let mode;
 
-    const modes = {
-        plain: null,
-        js: {
-            name: 'javascript',
-            json: false
-        },
-        json: {
-            name: 'javascript',
-            json: true
-        },
-        svelte: {
-            name: 'handlebars',
-            base: 'text/html'
-        },
-        md: {
-            name: 'markdown'
-        },
-        html: {
-            name: 'text/html',
-            htmlMode: true,
-        },
-        xml: {
-            name: 'text/html',
-            htmlMode: false,
-        }
-    };
-
     // We have to expose set and update methods, rather
     // than making this state-driven through props,
     // because it's difficult to update an editor
@@ -50,7 +27,7 @@
         if (new_mode !== mode) {
             // createEditor(mode = new_mode);
             // editor.setMode(new_mode)
-            let mode = modes[new_mode] || {name: new_mode}
+            let mode = editorModes[new_mode] || {name: new_mode}
             editor.setOption("mode", mode);
         }
         code = new_code;
@@ -162,7 +139,7 @@
             indentUnit: 2,
             tabSize: 2,
             value: '',
-            mode: modes[mode] || {
+            mode: editorModes[mode] || {
                 name: mode
             },
             readOnly: readonly,
@@ -194,6 +171,11 @@
         editor.on('change', instance => {
             if (!updating_externally) {
                 dispatch('change', null);
+            }
+        });
+        editor.on('blur', instance => {
+            if (!updating_externally) {
+                dispatch('blur', null);
             }
         });
         editor.refresh();
