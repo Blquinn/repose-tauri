@@ -15,13 +15,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ba87d7ef-99f6-45c2-bbfd-052dcc86b844" name="Default Changelist" comment="Fix editor refresh issue.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/src/http.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/http.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CodeMirror.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/CodeMirror.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RequestList.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/RequestList.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ResponseViewer.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResponseViewer.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/state.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tauri/http.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tauri/http.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +152,7 @@
       <updated>1604712438809</updated>
       <workItem from="1604712440359" duration="25789000" />
       <workItem from="1605224741215" duration="90386000" />
-      <workItem from="1606490141695" duration="23479000" />
+      <workItem from="1606490141695" duration="24051000" />
     </task>
     <task id="LOCAL-00001" summary="Move to sass">
       <created>1605375990220</created>
@@ -272,7 +266,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606577940199</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Fix over-setting editor issue">
+      <created>1606603350632</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1606603350632</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,7 +306,8 @@
     <MESSAGE value="Add param table and headers to state&#10;&#10;Update param table impl" />
     <MESSAGE value="Request type modes" />
     <MESSAGE value="Response loader" />
-    <option name="LAST_COMMIT_MESSAGE" value="Response loader" />
+    <MESSAGE value="Fix over-setting editor issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix over-setting editor issue" />
   </component>
   <component name="WindowStateProjectService">
     <state x="304" y="198" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606099370441">
