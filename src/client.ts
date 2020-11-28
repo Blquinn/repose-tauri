@@ -1,13 +1,16 @@
-import { request, HttpResponse } from './tauri/http';
+import {request, HttpResponse, HttpRequest} from './tauri/http';
 
 export class Client {
-    async request(method: string, url: string): Promise<HttpResponse> {
-        return await request({
-            method,
+    async request(method: string, url: string, params?: Partial<HttpRequest>): Promise<HttpResponse> {
+        const req: HttpRequest = {
+            ...params ?? {},
+            params: params?.params ?? [],
+            headers: params?.headers ?? [],
             url,
-            headers: [],
-            params: [],
-        });
+            method
+        };
+
+        return await request(req);
     }
 }
 

@@ -10,7 +10,6 @@
     enum DisplaySection { Headers, ResponseBody }
     let active = DisplaySection.ResponseBody;
 
-
     const mimeModeMap = {
         'application/json': 'json',
         'text/javascript': 'js',
@@ -30,6 +29,7 @@
             return;
         }
 
+        // TODO: Use request ids to track changes.
         let mode = 'plain';
         const lastResponse = req.lastResponse;
         if (lastResponse) {
@@ -57,7 +57,7 @@
     });
 </script>
 
-<main style="{show ? '' : 'display: none;'}">
+<main class:is-hidden={!show}>
     <div class="tabs">
         <ul>
             <li  class:is-active={active === DisplaySection.Headers}
@@ -70,14 +70,20 @@
         </ul>
     </div>
 
-    <div class="headers" style={active === DisplaySection.Headers ? '' : 'display: none;'}>
-        {#if $activeRequest.lastResponse}
-        {#each $activeRequest.lastResponse.headers.all() as header}
-            <p><b>{header[0]}:</b> {header[1]}</p>
-        {/each}
-        {/if}
+    <div class="response-container">
+        <div class="loader-wrapper" class:is-active={$activeRequest.isLoading}>
+            <div class="loader" class:is-loading={$activeRequest.isLoading}></div>
+        </div>
+
+        <div class="headers" class:is-hidden={active !== DisplaySection.Headers}>
+            {#if $activeRequest.lastResponse}
+            {#each $activeRequest.lastResponse.headers.all() as header}
+                <p><b>{header[0]}:</b> {header[1]}</p>
+            {/each}
+            {/if}
+        </div>
+        <CodeMirror class="editor" bind:this={editor} show={active === DisplaySection.ResponseBody} readonly={true} />
     </div>
-    <CodeMirror class="editor" bind:this={editor} show={active === DisplaySection.ResponseBody} readonly={true} />
 </main>
 
 <style>
@@ -100,5 +106,37 @@
     }
     .tabs {
         margin-bottom: 3px;
+    }
+    .response-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    .response-container > * {
+        flex: 1;
+        flex-shrink: 0;
+    }
+    .loader-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: #fff;
+        opacity: 0;
+        z-index: -1;
+        transition: opacity .3s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 6px;
+    }
+    .loader-wrapper .loader {
+        height: 80px;
+        width: 80px;
+    }
+    .loader-wrapper.is-active {
+         opacity: 1;
+         z-index: 4;
     }
 </style>

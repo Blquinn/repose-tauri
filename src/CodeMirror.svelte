@@ -24,6 +24,8 @@
     // because it's difficult to update an editor
     // without resetting scroll otherwise
     export async function set(new_code: string, new_mode: string) {
+        console.log('Setting editor contents.')
+
         if (new_mode !== mode) {
             // createEditor(mode = new_mode);
             // editor.setMode(new_mode)

@@ -8,11 +8,25 @@
     import type {HttpResponse} from "./tauri/http";
 
     async function sendRequest() {
-        const res: HttpResponse = await defaultClient.request($activeRequest.method, $activeRequest.url);
+        if (!$activeRequest) return;
+
+        activeRequest.update(req => { return {
+            ...req,
+            isLoading: true,
+            requestResponseDirection: RequestResponseDirection.Response,
+        }});
+
+        const params = $activeRequest?.params.filter(p => p.key !== '').map(p => [p.key, p.value]);
+        const headers = $activeRequest?.headers.filter(p => p.key !== '').map(p => [p.key, p.value]);
+
+        const res: HttpResponse = await defaultClient.request($activeRequest.method, $activeRequest.url, {
+            params,
+            headers
+        });
+
         activeRequest.update(r => { return {
             ...r,
             isLoading: false,
-            requestResponseDirection: RequestResponseDirection.Response,
             lastResponse: res,
         }});
     }
