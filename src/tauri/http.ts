@@ -1,4 +1,5 @@
 import { promisified } from 'tauri/api/tauri';
+import { v1 } from "uuid";
 
 export interface HttpRequest {
     /// The request method (GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS, CONNECT or TRACE)
@@ -50,6 +51,7 @@ export class Headers {
 }
 
 export interface HttpResponse {
+    requestId: string;
     body?: string;
     /// Headers are returned as an array of arrays, with [['key', 'value'], ...]
     headers: Headers;
@@ -59,6 +61,7 @@ export interface HttpResponse {
 }
 
 interface HttpRequestDTO {
+    requestId: string;
     /// The request method (GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS, CONNECT or TRACE)
     method: string;
     /// The request URL
@@ -86,6 +89,7 @@ interface HttpRequestDTO {
 }
 
 export interface HttpResponseDTO {
+    requestId: string;
     // Base64 encoded
     body?: string;
     /// Headers are returned as an array of arrays, with [['key', 'value'], ...]
@@ -98,6 +102,7 @@ export interface HttpResponseDTO {
 export async function request(request: HttpRequest): Promise<HttpResponse> {
     const dto: HttpRequestDTO = {
         ...request,
+        requestId: v1(),
         follow_redirects: request.followRedirects,
         max_redirections: request.maxRedirections,
         connect_timeout: request.connectTimeout,

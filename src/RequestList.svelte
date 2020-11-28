@@ -30,4 +30,9 @@
     .input-wrap {
         padding: 5px 5px 5px 5px;
     }
+    .menu-list li a {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
 </style>

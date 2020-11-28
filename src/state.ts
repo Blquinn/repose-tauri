@@ -4,11 +4,11 @@ import type { RequestState } from "./types";
 import { newRequestState } from "./types";
 
 export const requests: Writable<RequestState[]> = writable([
-    newRequestState('GET', 'https://jsonplaceholder.typicode.com/comments'),
-    newRequestState('GET', 'http://google.com'),
-    newRequestState('GET', 'http://google.com'),
+    newRequestState('GET', 'https://jsonplaceholder.typicode.com/comments', {name: 'Get Comments'}),
+    newRequestState('GET', 'http://google.com', {name: 'Get google'}),
+    newRequestState('GET', 'http://google.com', {name: 'Get google again and again and again and again and again.'}),
     newRequestState('POST', 'http://google.com'),
-    newRequestState('GET', 'http://google.com'),
+    newRequestState('GET', 'http://google.com', {name: 'Get Comments'}),
 ]);
 
 export const activeRequest: Writable<RequestState | null> = writable(null);

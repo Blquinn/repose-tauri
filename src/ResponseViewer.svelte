@@ -18,8 +18,8 @@
         'text/html': 'html',
     }
 
-    let lastBody: string | undefined = undefined;
-    const emptyBodyMsg = 'Empty Response'
+    let lastResponseId = '';
+    const emptyBodyMsg = 'Empty Response';
 
     activeRequest.subscribe(req => {
         if (!editor) return;
@@ -32,24 +32,28 @@
         // TODO: Use request ids to track changes.
         let mode = 'plain';
         const lastResponse = req.lastResponse;
-        if (lastResponse) {
-            const ct = lastResponse.headers.get('content-type');
-            if (ct) {
-                const chunks = ct.split(';');
-                if (chunks.length > 0) {
-                    const ctt = chunks[0];
 
-                    const m = mimeModeMap[ctt] ?? null;
-                    if (m) mode = m;
-                }
-            }
+        if ((lastResponse?.requestId ?? '') === lastResponseId) return;
 
-            lastBody = lastResponse.body;
-        } else {
-            lastBody = undefined;
+        lastResponseId = lastResponse?.requestId ?? '';
+
+        if (!lastResponse) {
+            editor.set(emptyBodyMsg, 'plain');
+            return;
         }
 
-        editor.set(lastBody ?? emptyBodyMsg, mode);
+        const ct = lastResponse.headers.get('content-type');
+        if (ct) {
+            const chunks = ct.split(';');
+            if (chunks.length > 0) {
+                const ctt = chunks[0];
+
+                const m = mimeModeMap[ctt] ?? null;
+                if (m) mode = m;
+            }
+        }
+
+        editor.set(lastResponse.body ?? emptyBodyMsg, mode);
     });
 
     onMount(() => {

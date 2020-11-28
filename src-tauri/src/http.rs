@@ -9,6 +9,7 @@ type KeyVal = Vec<String>;
 #[derive(Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct HttpRequest {
+    pub request_id: String,
     /// The request method (GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS, CONNECT or TRACE)
     pub method: String,
     /// The request URL
@@ -38,6 +39,7 @@ pub struct HttpRequest {
 #[derive(Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct HttpResponse {
+    pub request_id: String,
     #[serde(with = "base64")]
     pub body: Vec<u8>,
     /// Headers are returned as an array of arrays, with [['key', 'value'], ...]
@@ -84,6 +86,7 @@ pub fn do_request(json_req: HttpRequest) -> HttpResponse {
     reader.read_to_end(&mut body).unwrap();
 
     HttpResponse {
+        request_id: json_req.request_id,
         status_code,
         status_line,
         url,

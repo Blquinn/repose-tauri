@@ -1,20 +1,20 @@
 <script lang="ts">
     import '../theme/theme.scss';
 
-    import {Client} from "./client";
+    import { Client } from "./client";
     import SplitPane from './SplitPane.svelte';
     import RequestList from './RequestList.svelte';
 
-    import { activeRequest, requests } from "./state";
+    import { activeRequest, requests, setActiveRequest } from "./state";
     import RequestResponseContainer from "./RequestResponseContainer.svelte";
-    import {newRequestState} from "./types";
+    import { newRequestState } from "./types";
 
     let client = new Client();
 
     function addNewRequest() {
         const req = newRequestState('GET', 'https://blq.me');
-        activeRequest.set(req);
         requests.update(curr => [...curr, req]);
+        setActiveRequest($activeRequest, req);
     }
 
     $: if ($requests.length > 0 && !$activeRequest) {

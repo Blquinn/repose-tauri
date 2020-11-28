@@ -15,10 +15,13 @@
   <component name="ChangeListManager">
     <list default="true" id="ba87d7ef-99f6-45c2-bbfd-052dcc86b844" name="Default Changelist" comment="Fix editor refresh issue.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/src/http.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/http.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CodeMirror.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/CodeMirror.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RequestResponseContainer.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/RequestResponseContainer.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RequestList.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/RequestList.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ResponseViewer.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResponseViewer.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/state.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tauri/http.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tauri/http.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +158,7 @@
       <updated>1604712438809</updated>
       <workItem from="1604712440359" duration="25789000" />
       <workItem from="1605224741215" duration="90386000" />
-      <workItem from="1606490141695" duration="18008000" />
+      <workItem from="1606490141695" duration="23479000" />
     </task>
     <task id="LOCAL-00001" summary="Move to sass">
       <created>1605375990220</created>
@@ -262,7 +265,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606517253731</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Response loader">
+      <created>1606577940199</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1606577940199</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,7 +304,8 @@
     <MESSAGE value="Fix editor refresh issue." />
     <MESSAGE value="Add param table and headers to state&#10;&#10;Update param table impl" />
     <MESSAGE value="Request type modes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Request type modes" />
+    <MESSAGE value="Response loader" />
+    <option name="LAST_COMMIT_MESSAGE" value="Response loader" />
   </component>
   <component name="WindowStateProjectService">
     <state x="304" y="198" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606099370441">
@@ -313,22 +324,22 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="578" y="290" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1605235087438" />
-    <state width="1638" height="309" key="GridCell.Tab.0.bottom" timestamp="1606521257618">
+    <state width="1638" height="309" key="GridCell.Tab.0.bottom" timestamp="1606596454790">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="309" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1606521257618" />
-    <state width="1638" height="309" key="GridCell.Tab.0.center" timestamp="1606521257617">
+    <state width="1638" height="309" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1606596454790" />
+    <state width="1638" height="309" key="GridCell.Tab.0.center" timestamp="1606596454790">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="309" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1606521257617" />
-    <state width="1638" height="309" key="GridCell.Tab.0.left" timestamp="1606521257616">
+    <state width="1638" height="309" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1606596454790" />
+    <state width="1638" height="309" key="GridCell.Tab.0.left" timestamp="1606596454789">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="309" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1606521257616" />
-    <state width="1638" height="309" key="GridCell.Tab.0.right" timestamp="1606521257617">
+    <state width="1638" height="309" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1606596454789" />
+    <state width="1638" height="309" key="GridCell.Tab.0.right" timestamp="1606596454790">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="309" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1606521257617" />
+    <state width="1638" height="309" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1606596454790" />
     <state x="328" y="118" key="SettingsEditor" timestamp="1605314064268">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
