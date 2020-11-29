@@ -17,6 +17,7 @@ curl = "0.4.34"
 ureq = "1.5.2"
 anyhow = "1.0.34"
 base64 = "0.13.0"
+sqlite = "0.25.3"
 
 [target."cfg(windows)".build-dependencies]
 winres = "0.1"

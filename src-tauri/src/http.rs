@@ -1,6 +1,4 @@
 use std::io::Read;
-use std::collections::HashMap;
-use serde_json::Value;
 use serde::{Deserialize, Serialize};
 
 /// Key value pairs serialized as length 2 json string arrays ['key', 'value']
@@ -64,7 +62,7 @@ pub fn do_request(json_req: HttpRequest) -> HttpResponse {
         }
     }
 
-    let mut res = request.call();
+    let res = request.call();
 
     // Handle response
 
@@ -97,7 +95,8 @@ pub fn do_request(json_req: HttpRequest) -> HttpResponse {
 
 mod base64 {
     extern crate base64;
-    use serde::{Serializer, de, Deserialize, Deserializer};
+    // use serde::{Serializer, de, Deserialize, Deserializer};
+    use serde::Serializer;
 
     pub fn serialize<S>(bytes: &[u8], serializer: S) -> Result<S::Ok, S::Error>
         where S: Serializer
@@ -110,11 +109,11 @@ mod base64 {
         // serializer.collect_str(&Base64(bytes))
     }
 
-    pub fn deserialize<'de, D>(deserializer: D) -> Result<Vec<u8>, D::Error>
-        where D: Deserializer<'de>
-    {
-        let s = <&str>::deserialize(deserializer)?;
-        base64::decode(s).map_err(de::Error::custom)
-    }
+    // pub fn deserialize<'de, D>(deserializer: D) -> Result<Vec<u8>, D::Error>
+    //     where D: Deserializer<'de>
+    // {
+    //     let s = <&str>::deserialize(deserializer)?;
+    //     base64::decode(s).map_err(de::Error::custom)
+    // }
 }
 

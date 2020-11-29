@@ -8,6 +8,8 @@
     import { activeRequest, requests, setActiveRequest } from "./state";
     import RequestResponseContainer from "./RequestResponseContainer.svelte";
     import { newRequestState } from "./types";
+    import {onMount} from "svelte";
+    import {select} from "./tauri/sqlite";
 
     let client = new Client();
 
@@ -20,6 +22,11 @@
     $: if ($requests.length > 0 && !$activeRequest) {
         activeRequest.update(_ => $requests[0]);
     }
+
+    onMount(async () => {
+        let res = await select("select ?", [1]);
+        console.log(res.rows)
+    })
 </script>
 
 <main>
