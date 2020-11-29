@@ -32,7 +32,7 @@ type Responses =
     | SelectOneResponseWrapper;
 
 
-export async function exec(stmt: string, args: Arg[] = []): Promise<ExecResponse> {
+export async function exec(stmt: string, ...args: Arg[]): Promise<ExecResponse> {
     const cmd: Commands = {"exec": {stmt, args}};
 
     return (await promisified<Responses>({
@@ -41,7 +41,7 @@ export async function exec(stmt: string, args: Arg[] = []): Promise<ExecResponse
     }) as ExecResponseWrapper).exec;
 }
 
-export async function select(stmt: string, args: Arg[] = []): Promise<SelectResponse> {
+export async function select(stmt: string, ...args: Arg[]): Promise<SelectResponse> {
     const cmd: Commands = {"select": {stmt, args}};
 
     return (await promisified<Responses>({
@@ -50,7 +50,7 @@ export async function select(stmt: string, args: Arg[] = []): Promise<SelectResp
     }) as SelectResponseWrapper).select;
 }
 
-export async function selectOne(stmt: string, args: Arg[] = []): Promise<SelectOneResponse> {
+export async function selectOne(stmt: string, ...args: Arg[]): Promise<SelectOneResponse> {
     const cmd: Commands = {"selectOne": {stmt, args}};
 
     return (await promisified<Responses>({

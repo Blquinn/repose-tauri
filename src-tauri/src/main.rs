@@ -18,7 +18,7 @@ fn main() {
         .invoke_handler(move |_webview, arg| {
             use cmd::Cmd::*;
 
-            let db = db.clone().to_owned();
+            let db = db.clone();
 
             match serde_json::from_str(arg) {
                 Err(e) => {
@@ -28,7 +28,8 @@ fn main() {
                     match command {
                         ReposeHttpRequest { request, callback, error } => {
                             tauri::execute_promise(_webview, move || {
-                                    Ok(http::do_request(request))
+                                    http::do_request(request)
+                                        .map_err(|e| { anyhow::Error::from(e) })
                                 }, callback, error)
                         }
                         SqliteCommand { command, callback, error } => {
@@ -36,7 +37,8 @@ fn main() {
                                 // TODO: Could be better to run this in it's own thread instead of
                                 // locking in the worker pool threads.
                                 let db = db.lock().unwrap();
-                                Ok(db.handle_command(command))
+                                db.handle_command(command)
+                                    .map_err(|e| { anyhow::Error::from(e) })
                             }, callback, error)
                         }
                     }

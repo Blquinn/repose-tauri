@@ -14,15 +14,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba87d7ef-99f6-45c2-bbfd-052dcc86b844" name="Default Changelist" comment="Fix editor refresh issue.">
-      <change afterPath="$PROJECT_DIR$/src-tauri/src/sqlite.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tauri/sqlite.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/src/cmd.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/cmd.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src-tauri/src/http.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/http.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src-tauri/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/main.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/src/sqlite.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/sqlite.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tauri/sqlite.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tauri/sqlite.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +174,7 @@
       <updated>1604712438809</updated>
       <workItem from="1604712440359" duration="25789000" />
       <workItem from="1605224741215" duration="90386000" />
-      <workItem from="1606490141695" duration="39224000" />
+      <workItem from="1606490141695" duration="44019000" />
     </task>
     <task id="LOCAL-00001" summary="Move to sass">
       <created>1605375990220</created>
@@ -305,7 +302,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606604021140</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Add request list filter logic">
+      <created>1606679801363</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1606679801363</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -359,22 +363,22 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="578" y="290" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1605235087438" />
-    <state width="1638" height="309" key="GridCell.Tab.0.bottom" timestamp="1606679577799">
+    <state width="1638" height="243" key="GridCell.Tab.0.bottom" timestamp="1606691058619">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="309" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1606679577799" />
-    <state width="1638" height="309" key="GridCell.Tab.0.center" timestamp="1606679577798">
+    <state width="1638" height="243" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1606691058619" />
+    <state width="1638" height="243" key="GridCell.Tab.0.center" timestamp="1606691058618">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="309" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1606679577798" />
-    <state width="1638" height="309" key="GridCell.Tab.0.left" timestamp="1606679577797">
+    <state width="1638" height="243" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1606691058618" />
+    <state width="1638" height="243" key="GridCell.Tab.0.left" timestamp="1606691058617">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="309" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1606679577797" />
-    <state width="1638" height="309" key="GridCell.Tab.0.right" timestamp="1606679577798">
+    <state width="1638" height="243" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1606691058617" />
+    <state width="1638" height="243" key="GridCell.Tab.0.right" timestamp="1606691058618">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="309" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1606679577798" />
+    <state width="1638" height="243" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1606691058618" />
     <state x="328" y="118" key="SettingsEditor" timestamp="1605314064268">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
@@ -387,9 +391,13 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="99" y="123" width="1480" height="827" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1605453866055" />
-    <state x="541" y="291" width="681" height="548" key="find.popup" timestamp="1606677579057">
+    <state x="541" y="291" width="681" height="548" key="find.popup" timestamp="1606690428627">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state x="541" y="291" width="681" height="548" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1606677579057" />
+    <state x="541" y="291" width="681" height="548" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1606690428627" />
+    <state x="505" y="250" width="670" height="676" key="search.everywhere.popup" timestamp="1606690565939">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="505" y="250" width="670" height="676" key="search.everywhere.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1606690565939" />
   </component>
 </project>

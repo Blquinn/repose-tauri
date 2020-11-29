@@ -1,5 +1,6 @@
 use std::io::Read;
 use serde::{Deserialize, Serialize};
+use std::io;
 
 /// Key value pairs serialized as length 2 json string arrays ['key', 'value']
 type KeyVal = Vec<String>;
@@ -47,7 +48,7 @@ pub struct HttpResponse {
     pub status_line: String,
 }
 
-pub fn do_request(json_req: HttpRequest) -> HttpResponse {
+pub fn do_request(json_req: HttpRequest) -> io::Result<HttpResponse> {
     let mut request = ureq::request(&json_req.method, &json_req.url);
 
     for header in json_req.headers.iter() {
@@ -66,9 +67,6 @@ pub fn do_request(json_req: HttpRequest) -> HttpResponse {
 
     // Handle response
 
-    // TODO: Handle error
-    // res.error()
-
     let mut headers: Vec<KeyVal> = Vec::new();
     for header in res.headers_names() {
         for val in res.all(header.as_ref()).iter() {
@@ -81,21 +79,20 @@ pub fn do_request(json_req: HttpRequest) -> HttpResponse {
 
     let mut reader = res.into_reader();
     let mut body: Vec<u8> = vec![];
-    reader.read_to_end(&mut body).unwrap();
+    reader.read_to_end(&mut body)?;
 
-    HttpResponse {
+    Ok(HttpResponse {
         request_id: json_req.request_id,
         status_code,
         status_line,
         url,
         headers,
         body,
-    }
+    })
 }
 
 mod base64 {
     extern crate base64;
-    // use serde::{Serializer, de, Deserialize, Deserializer};
     use serde::Serializer;
 
     pub fn serialize<S>(bytes: &[u8], serializer: S) -> Result<S::Ok, S::Error>
