@@ -2,5 +2,6 @@
 /public/build/
 
 .DS_Store
+.idea/
 
 public/index.tauri.html

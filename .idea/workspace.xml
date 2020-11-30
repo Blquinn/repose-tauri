@@ -15,11 +15,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ba87d7ef-99f6-45c2-bbfd-052dcc86b844" name="Default Changelist" comment="Fix editor refresh issue.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/src/http.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/http.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/main.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/src/sqlite.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/sqlite.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tauri/sqlite.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tauri/sqlite.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +169,7 @@
       <updated>1604712438809</updated>
       <workItem from="1604712440359" duration="25789000" />
       <workItem from="1605224741215" duration="90386000" />
-      <workItem from="1606490141695" duration="44019000" />
+      <workItem from="1606490141695" duration="44907000" />
     </task>
     <task id="LOCAL-00001" summary="Move to sass">
       <created>1605375990220</created>
@@ -309,7 +304,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606679801363</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Remove rust unwraps">
+      <created>1606692979718</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1606692979718</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -344,7 +346,8 @@
     <MESSAGE value="Response loader" />
     <MESSAGE value="Fix over-setting editor issue" />
     <MESSAGE value="Add request list filter logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add request list filter logic" />
+    <MESSAGE value="Remove rust unwraps" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove rust unwraps" />
   </component>
   <component name="WindowStateProjectService">
     <state x="304" y="198" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606099370441">
@@ -391,10 +394,10 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="99" y="123" width="1480" height="827" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1605453866055" />
-    <state x="541" y="291" width="681" height="548" key="find.popup" timestamp="1606690428627">
+    <state x="541" y="291" width="681" height="548" key="find.popup" timestamp="1606693836854">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state x="541" y="291" width="681" height="548" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1606690428627" />
+    <state x="541" y="291" width="681" height="548" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1606693836854" />
     <state x="505" y="250" width="670" height="676" key="search.everywhere.popup" timestamp="1606690565939">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
